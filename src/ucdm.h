@@ -1,6 +1,6 @@
 /* 
-   Copyright 2015 Quazar Technologies Pvt. Ltd.
-   Copyright 2015 Chintalagiri Shashank
+   Copyright (c)
+     (c) 2015-2016 Chintalagiri Shashank, Quazar Technologies Pvt. Ltd.
    
    This file is part of
    Embedded bootstraps : ucdm library
@@ -74,9 +74,38 @@
 #ifndef UCDM_H
 #define UCDM_H
 
-#include "devicemap.h"
 #include <stdint.h>
 
+
+/**
+ * @name UCDM Configuration and Storage Containers
+ * 
+ * Most of the containers defined here should be defined in the application
+ * layer as per the requirements of the application. 
+ * 
+ */
+/**@{*/ 
+
+/** \brief Number of UCDM registers supported. */
+extern uint8_t DMAP_MAXREGS;
+
+/** \brief Actual storage for UCDM registers. */
+extern uint16_t ucdm_register[];
+
+/** \brief Actual storage for UCDM access type settings. */
+extern uint8_t ucdm_acctype[];
+
+/** \brief Actual storage for pointers to UCDM register write handlers. */
+extern void (*ucdm_rw_handler[])(uint8_t);
+
+/** \brief Actual storage for pointers to UCDM bit write handlers. */
+extern void (*ucdm_bw_handler[])(uint8_t, uint16_t);
+
+/** \brief Number of UCDM bits supported. 
+  * Defined and caluated as DMAP_MAXREGS * 16 in `ucdm.c` */
+extern uint16_t DMAP_MAXBITS;
+
+/**@}*/ 
 
 /**
  * @name UCDM Access Type Definitions
@@ -90,17 +119,16 @@
 
 /**@}*/ 
 
-extern uint16_t ucdm_register[DMAP_MAXREGS];
-extern uint8_t ucdm_acctype[DMAP_MAXREGS];
-
-extern void *(*ucdm_rw_handler[DMAP_MAXREGS])(uint8_t);
-extern void *(*ucdm_bw_handler[DMAP_MAXREGS])(uint8_t, uint16_t);
 
 /**
  * @name UCDM Setup Functions
  */
 /**@{*/ 
 
+/** 
+  * \brief Intitialize the UCDM subsystem.
+  */
+void ucdm_init(void);
 
 /** 
   * \brief Enable UCDM register write access on register.
@@ -124,7 +152,7 @@ void ucdm_enable_bitw(uint8_t addr);
   * @param addr Address/identifier of the register.
   * @param *rw_handler Pointer to the handler function.
   */
-void ucdm_install_regw_handler(uint8_t addr, void *rw_handler(uint8_t));
+void ucdm_install_regw_handler(uint8_t addr, void rw_handler(uint8_t));
 
 /** 
   * \brief Install a Bit Write Handler for a UCDM register.
@@ -134,7 +162,7 @@ void ucdm_install_regw_handler(uint8_t addr, void *rw_handler(uint8_t));
   * @param addr Address/identifier of the register.
   * @param *bw_handler Pointer to the handler function.
   */
-void ucdm_install_bitw_handler(uint8_t addr, void *bw_handler(uint8_t, uint16_t));
+void ucdm_install_bitw_handler(uint8_t addr, void bw_handler(uint8_t, uint16_t));
 /**@}*/ 
 
 /**

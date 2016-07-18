@@ -1,6 +1,6 @@
 /* 
-   Copyright 2015 Quazar Technologies Pvt. Ltd.
-   Copyright 2015 Chintalagiri Shashank
+   Copyright (c)
+     (c) 2015-2016 Chintalagiri Shashank, Quazar Technologies Pvt. Ltd.
    
    This file is part of
    Embedded bootstraps : ucdm library
@@ -29,22 +29,45 @@
  * @see ucdm.h
  */
 
+#include <string.h>
 #include "ucdm.h"
 
-uint16_t ucdm_register[DMAP_MAXREGS];
-uint8_t ucdm_acctype[DMAP_MAXREGS];
+uint16_t DMAP_MAXBITS;
 
-void *(*ucdm_rw_handler[DMAP_MAXREGS])(uint8_t);
-void *(*ucdm_bw_handler[DMAP_MAXREGS])(uint8_t, uint16_t);
+static inline void _ucdm_registers_init(void);
+static inline void _ucdm_acctype_init(void);
+static inline void _ucdm_handlers_init(void);
 
+static inline void _ucdm_registers_init(void)
+{
+    memset(&ucdm_register, 0, 2 * DMAP_MAXREGS);
+}
 
-void ucdm_install_regw_handler(uint8_t addr, void *rw_handler(uint8_t)){
-    ucdm_rw_handler[addr] = *rw_handler;
+static inline void _ucdm_acctype_init(void)
+{
+    memset(&ucdm_acctype, 0, DMAP_MAXREGS);
+}
+
+static inline void _ucdm_handlers_init(void)
+{
+    ;
+}
+
+void ucdm_init(void)
+{
+    DMAP_MAXBITS = DMAP_MAXREGS * 16;
+    _ucdm_registers_init();
+    _ucdm_acctype_init();
+    _ucdm_handlers_init();
+}
+
+void ucdm_install_regw_handler(uint8_t addr, void rw_handler(uint8_t)){
+    ucdm_rw_handler[addr] = rw_handler;
     ucdm_acctype[addr] |= UCDM_AT_REGW_HF;
 }
 
-void ucdm_install_bitw_handler(uint8_t addr, void *bw_handler(uint8_t, uint16_t)){
-    ucdm_bw_handler[addr] = *bw_handler;
+void ucdm_install_bitw_handler(uint8_t addr, void bw_handler(uint8_t, uint16_t)){
+    ucdm_bw_handler[addr] = bw_handler;
     ucdm_acctype[addr] |= UCDM_AT_BITW_HF;
 }
 
@@ -79,6 +102,17 @@ uint16_t ucdm_get_register(uint8_t addr){
 }
 
 
+static void _ucdm_exec_bit_handler(uint8_t addr, uint16_t mask);
+
+static void _ucdm_exec_bit_handler(uint8_t addr, uint16_t mask){
+    if (ucdm_acctype[addr] & UCDM_AT_BITW_HF){
+        (*ucdm_bw_handler[addr])(addr, mask);
+    }
+    else if (ucdm_acctype[addr] & UCDM_AT_REGW_HF){
+        (*ucdm_rw_handler[addr])(addr);
+    }
+}
+
 uint8_t ucdm_set_bit(uint16_t addrb){
     if (addrb > DMAP_MAXBITS){
         return 1;
@@ -88,12 +122,7 @@ uint8_t ucdm_set_bit(uint16_t addrb){
     ucdm_get_bit_addr(addrb, &addr, &mask);
     if (ucdm_acctype[addr] & UCDM_AT_BITW){
         ucdm_register[addr] |= mask;
-        if (ucdm_acctype[addr] & UCDM_AT_BITW_HF){
-            (*ucdm_bw_handler[addr])(addr, mask);
-        }
-        else if (ucdm_acctype[addr] & UCDM_AT_REGW_HF){
-            (*ucdm_rw_handler[addr])(addr);
-        }
+        _ucdm_exec_bit_handler(addr, mask);
         return 0;
     }
     return 1;
@@ -108,12 +137,7 @@ uint8_t ucdm_clear_bit(uint16_t addrb){
     ucdm_get_bit_addr(addrb, &addr, &mask);
     if (ucdm_acctype[addr] & UCDM_AT_BITW){
         ucdm_register[addr] &= ~mask;
-        if (ucdm_acctype[addr] & UCDM_AT_BITW_HF){
-            (*ucdm_bw_handler[addr])(addr, mask);
-        }
-        else if (ucdm_acctype[addr] & UCDM_AT_REGW_HF){
-            (*ucdm_rw_handler[addr])(addr);
-        }
+        _ucdm_exec_bit_handler(addr, mask);
         return 0;
     }
     return 1;
