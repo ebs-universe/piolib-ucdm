@@ -128,7 +128,7 @@ extern uint16_t DMAP_MAXBITS;
 /** 
   * \brief Intitialize the UCDM subsystem.
   */
-void ucdm_init(void);
+extern void ucdm_init(void);
 
 /** 
   * \brief Enable UCDM register write access on register.
