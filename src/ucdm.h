@@ -76,7 +76,6 @@
 
 #include <stdint.h>
 
-
 /**
  * @name UCDM Configuration and Storage Containers
  * 
@@ -174,7 +173,7 @@ void ucdm_install_bitw_handler(uint8_t addr, void bw_handler(uint8_t, uint16_t))
   * 
   * @param addr Address/identifier of the register
   * @param value The value to be set
-  * @return 1 for register set, 0 for access error.
+  * @return 0 for register set, 1 for register out of range, 2 for access error.
   */
 uint8_t ucdm_set_register(uint8_t addr, uint16_t value);
 

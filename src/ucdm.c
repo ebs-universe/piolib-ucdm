@@ -91,7 +91,7 @@ uint8_t ucdm_set_register(uint8_t addr, uint16_t value){
         }
         return 0;
     }
-    return 1;
+    return 2;
 }
 
 uint16_t ucdm_get_register(uint8_t addr){
