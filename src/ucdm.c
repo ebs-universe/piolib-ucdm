@@ -33,6 +33,8 @@
 #include "ucdm.h"
 
 uint16_t DMAP_MAXBITS;
+uint16_t ucdm_diagnostic_register;
+uint8_t  ucdm_exception_status;
 
 static inline void _ucdm_registers_init(void);
 static inline void _ucdm_acctype_init(void);
@@ -62,21 +64,46 @@ void ucdm_init(void)
 }
 
 void ucdm_install_regw_handler(uint8_t addr, void rw_handler(uint8_t)){
+    if (!(ucdm_acctype[addr] & (UCDM_AT_REGW))){
+        // Not allowed!
+        return;
+    }
     ucdm_rw_handler[addr] = rw_handler;
     ucdm_acctype[addr] |= UCDM_AT_REGW_HF;
 }
 
 void ucdm_install_bitw_handler(uint8_t addr, void bw_handler(uint8_t, uint16_t)){
+    if (!(ucdm_acctype[addr] & (UCDM_AT_BITW))){
+        // Not allowed!
+        return;
+    }
     ucdm_bw_handler[addr] = bw_handler;
     ucdm_acctype[addr] |= UCDM_AT_BITW_HF;
 }
 
 void ucdm_enable_regw(uint8_t addr){
+    if (ucdm_acctype[addr] & (UCDM_AT_PTR)){
+        // Not allowed!
+        return;
+    }
     ucdm_acctype[addr] |= UCDM_AT_REGW;
 }
 
 void ucdm_enable_bitw(uint8_t addr){
+    if (ucdm_acctype[addr] & (UCDM_AT_PTR)){
+        // Not allowed!
+        return;
+    }
     ucdm_acctype[addr] |= UCDM_AT_BITW;
+}
+
+void ucdm_redirect_read(uint8_t addr, uint16_t * target){
+    if (ucdm_acctype[addr] & (UCDM_AT_BITW | UCDM_AT_REGW)){
+        // Not allowed!
+        return;
+    }
+    ucdm_register[addr] = (uint16_t)target;
+    ucdm_acctype[addr] |= UCDM_AT_PTR;
 }
 
 
@@ -98,7 +125,12 @@ uint16_t ucdm_get_register(uint8_t addr){
     if (addr > DMAP_MAXREGS){
         return 0xFFFF;
     }
-    return ucdm_register[addr];
+    if (ucdm_acctype[addr] & UCDM_AT_PTR){
+        return *(uint16_t *)(void *)(ucdm_register[addr]);
+    }
+    else{
+        return ucdm_register[addr];
+    }
 }
 
 
@@ -150,5 +182,8 @@ uint8_t ucdm_get_bit(uint16_t addrb){
     uint8_t addr;
     uint16_t mask;
     ucdm_get_bit_addr(addrb, &addr, &mask);
+    if (ucdm_acctype[addr] & UCDM_AT_PTR){
+        return (*(uint16_t *)(void *)(ucdm_register[addr])) & mask;
+    }
     return (ucdm_register[addr] & mask); 
 }

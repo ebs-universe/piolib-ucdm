@@ -76,6 +76,12 @@
 
 #include <stdint.h>
 
+#define UCDM_EXST_KEEPALIVE_REQ         0x01
+#define UCDM_EXST_TIMESYNC_REQ          0x02
+
+extern uint16_t ucdm_diagnostic_register;
+extern uint8_t  ucdm_exception_status;
+
 /**
  * @name UCDM Configuration and Storage Containers
  * 
@@ -113,8 +119,9 @@ extern uint16_t DMAP_MAXBITS;
 
 #define UCDM_AT_REGW    0x01
 #define UCDM_AT_BITW    0x02
-#define UCDM_AT_REGW_HF 0x10
-#define UCDM_AT_BITW_HF 0x20
+#define UCDM_AT_REGW_HF 0x04
+#define UCDM_AT_BITW_HF 0x08
+#define UCDM_AT_PTR     0x10
 
 /**@}*/ 
 
@@ -163,6 +170,8 @@ void ucdm_install_regw_handler(uint8_t addr, void rw_handler(uint8_t));
   */
 void ucdm_install_bitw_handler(uint8_t addr, void bw_handler(uint8_t, uint16_t));
 /**@}*/ 
+
+void ucdm_redirect_read(uint8_t addr, uint16_t * target);
 
 /**
  * @name UCDM Register Access Functions
