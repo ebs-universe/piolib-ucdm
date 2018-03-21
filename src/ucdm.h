@@ -51,7 +51,7 @@
  * 
  * Only basic support of bit read / write is implemented. Bit level access 
  * functions will only operate on normal UCDM registers, ie, registers which
- * are stored directly in UCDM register storage.Specifically :
+ * are stored directly in UCDM register storage. Specifically :
  *  - Bit read is always allowed, but is useful only for bits in normal UCDM
  *    registers.
  *  - Bit write must be enabled if it is to be used, per register. Bit write
@@ -122,9 +122,9 @@
  * 
  * Configuring the appropriate access type definitions should be done by the
  * application code using the provided functions in this library's API. This
- * configuration is expected to occur during initialization, and during normal
- * operation. These functions should therefore not be expected to be well 
- * optimized.
+ * configuration is expected to occur during initialization, and not during 
+ * normal operation. These functions should therefore not be expected to be 
+ * well optimized.
  * 
  * Register access type definitions provided can be used to configure the 
  * appropriate access types as needed, but should be avoided. If you do end
@@ -296,7 +296,7 @@ extern void ucdm_init(void);
  * \brief Configure UCDM register read access on this register to redirect to a pointer. 
  *
  * @param addr Address/identifier of the register.
- * @param *target Pointer to the address where the reads should be redirected to.
+ * @param target Pointer to the address where the reads should be redirected to.
  */
 void ucdm_redirect_regr_ptr(uint16_t addr, uint16_t * target);
 
@@ -304,7 +304,7 @@ void ucdm_redirect_regr_ptr(uint16_t addr, uint16_t * target);
  * \brief Configure UCDM register read access on this register to redirect to a function pointer. 
  * 
  * @param addr Address/identifier of the register.
- * @param target() Pointer to the funcition where the reads should be redirected to.
+ * @param target Pointer to the funcition where the reads should be redirected to.
  */
 void ucdm_redirect_regr_func(uint16_t addr, uint16_t target(uint16_t));
 
@@ -322,7 +322,7 @@ void ucdm_redirect_regr_func(uint16_t addr, uint16_t target(uint16_t));
 void ucdm_enable_bitw(uint16_t addr);
 
 /** 
- * \brief Enable UCDM bit write access on register.
+ * \brief Disable UCDM bit write access on register.
  * 
  * @param addr Address/identifier of the register.
  */
@@ -330,6 +330,10 @@ void ucdm_disable_bitw(uint16_t addr);
 
 /**@}*/ 
 
+/**
+ * @name UCDM Register Configuration Functions for Register Write
+ */
+/**@{*/ 
 /** 
  * \brief Enable UCDM register write access on register. 
  * 
@@ -354,7 +358,7 @@ void ucdm_disable_regw(uint16_t addr);
  * Write enable is also set.
  *
  * @param addr Address/identifier of the register.
- * @param *target Pointer to the address where the writes should be redirected to.
+ * @param target Pointer to the address where the writes should be redirected to.
  */
 void ucdm_redirect_regw_ptr(uint16_t addr, uint16_t * target);
 
@@ -364,9 +368,11 @@ void ucdm_redirect_regw_ptr(uint16_t addr, uint16_t * target);
  * Write enable is also set.
  * 
  * @param addr Address/identifier of the register.
- * @param target() Pointer to the funcition where the writes should be redirected to.
+ * @param target Pointer to the funcition where the writes should be redirected to.
  */
 void ucdm_redirect_regw_func(uint16_t addr, void target(uint16_t, uint16_t));
+
+/**@}*/ 
 
 /**
  * @name UCDM Register Configuration Functions for Post-Write Handler Functions
@@ -378,7 +384,9 @@ void ucdm_redirect_regw_func(uint16_t addr, void target(uint16_t, uint16_t));
  * \warning This will overwrite any handler previously installed.
  * 
  * @param addr Address/identifier of the register.
- * @param *rw_handler Pointer to the handler function.
+ * @param rwh_node Handler tree node container to use. This should be allocated 
+ *                 and provided by the application.
+ * @param handler Pointer to the handler function.
  */
 void ucdm_install_regw_handler(uint16_t addr, 
                                avlt_node_t * rwh_node, 
@@ -390,7 +398,9 @@ void ucdm_install_regw_handler(uint16_t addr,
  * \warning This will overwrite any handler previously installed.
  * 
  * @param addr Address/identifier of the register.
- * @param *bw_handler Pointer to the handler function.
+ * @param bwh_node Handler tree node container to use. This should be allocated 
+ *                 and provided by the application.
+ * @param handler Pointer to the handler function.
  */
 void ucdm_install_bitw_handler(uint16_t addr, 
                                avlt_node_t * bwh_node, 
@@ -428,8 +438,8 @@ uint16_t ucdm_get_register(uint16_t addr);
   * \brief Get the address of a UCDM bit from the identifier
   * 
   * @param addrb Identifier of the bit
-  * @param *addr Pointer to where the register address should be stored
-  * @param *mask Pointer to where the bitmask should be stored
+  * @param addr Pointer to where the register address should be stored
+  * @param mask Pointer to where the bitmask should be stored
   */
 static inline void ucdm_get_bit_addr(uint16_t addrb, uint16_t * addr, uint16_t * mask);
 
