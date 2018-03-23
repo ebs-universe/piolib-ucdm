@@ -261,19 +261,19 @@ extern uint16_t DMAP_MAXBITS;
 /** Mask for UCDM Access Type, Register Write */
 #define UCDM_AT_REGW_MASK           0xF0
 /** Register Write, Enable Post-Write Handler Function (No effect without WE) */
-#define UCDM_AT_REGW_HF             0x80  
+#define UCDM_AT_REGW_HF             0x80
+/** Register Write, Enable Pre-Write Validation Function (Does not respect WE) **/
+#define UCDM_AT_REGW_VALIDATE       0x40
 /** Mask for UCDM Access Type, Register Write Type */
-#define UCDM_AT_REGW_TYPE_MASK      0x70
+#define UCDM_AT_REGW_TYPE_MASK      0x30
 /** Register Write, Not Allowed */
 #define UCDM_AT_REGW_TYPE_RO        0x00    // 0, 00
 /** Register Write, Write Enabled, Normal (to ucdm storage) */
 #define UCDM_AT_REGW_TYPE_NORMAL    0x10    // 1, 00
 /** Register Write, Write Enabled, Pointer (ptr in ucdm storage) */
-#define UCDM_AT_REGW_TYPE_PTR       0x30    // 1, 01
+#define UCDM_AT_REGW_TYPE_PTR       0x20    // 1, 01
 /** Register Write, Write Enabled, Function (function ptr in ucdm storage) */
-#define UCDM_AT_REGW_TYPE_FUNC      0x50    // 1, 10
-/** Register Write, Write Enabled, Unused Type */
-#define UCDM_AT_REGW_TYPE_RESV      0x70    // 1, 11
+#define UCDM_AT_REGW_TYPE_FUNC      0x30    // 1, 10
 /**@}*/ 
 
 /**

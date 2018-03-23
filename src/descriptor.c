@@ -20,13 +20,13 @@
 */
 
 /**
- * @file descriptors.c
+ * @file descriptor.c
  * @brief Descriptor type definitions.
  *
  */
 
 #include <string.h>
-#include "descriptors.h"
+#include "descriptor.h"
 
 
 descriptor_custom_t * descriptor_custom_root = NULL;

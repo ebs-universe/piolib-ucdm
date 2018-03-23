@@ -179,7 +179,7 @@ uint8_t ucdm_set_register(uint16_t addr, uint16_t value){
         hfnode = avlt_find_node(&ucdm_rwht, addr);
         ((ucdm_rw_handler_t)(hfnode->content))(addr);
     }
-    return 2;
+    return 0;
 }
 
 uint16_t ucdm_get_register(uint16_t addr){

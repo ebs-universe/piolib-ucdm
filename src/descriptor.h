@@ -20,13 +20,13 @@
 */
 
 /**
- * @file descriptors.h
+ * @file descriptor.h
  * @brief Descriptor type definitions.
  *
  */
 
-#ifndef UCDM_DESCRIPTORS_H
-#define UCDM_DESCRIPTORS_H
+#ifndef UCDM_DESCRIPTOR_H
+#define UCDM_DESCRIPTOR_H
 
 #include "ucdm.h"
 
