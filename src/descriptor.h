@@ -58,6 +58,9 @@ extern const descriptor_firmware_t descriptor_firmware;
 #define DESCRIPTOR_ACCTYPE_PTR      0x01
 #define DESCRIPTOR_ACCTYPE_RFUNC    0x02
 
+#define DESCRIPTOR_TAG_SERIALNO     0x00
+#define DESCRIPTOR_TAG_LIBVERSION   0x01
+
 
 typedef union DESCRIPTOR_PTR_t{
     void * const ptr;
@@ -66,11 +69,11 @@ typedef union DESCRIPTOR_PTR_t{
 
 
 typedef struct DESCRIPTOR_CUSTOM_t{
+    struct DESCRIPTOR_CUSTOM_t * next;
     const uint8_t tag;
     const uint8_t length;
     const uint8_t acctype;
     descriptor_ptr_t value;
-    struct DESCRIPTOR_CUSTOM_t * next;
 }descriptor_custom_t;
 
 extern descriptor_custom_t * descriptor_custom_root;

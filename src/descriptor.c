@@ -26,39 +26,18 @@
  */
 
 #include <string.h>
+#include <ds/sllist.h>
 #include "descriptor.h"
-
 
 descriptor_custom_t * descriptor_custom_root = NULL;
 
-
 void descriptor_install(descriptor_custom_t * dptr){
-    descriptor_custom_t * wptr;
-    wptr = descriptor_custom_root;
-    if (wptr == NULL){
-        descriptor_custom_root = dptr;
-        return;
-    }
-    while(wptr->next){
-        if (wptr->next->tag > dptr->tag){
-            dptr->next = wptr->next;
-            break;
-        }
-    }
-    wptr->next = dptr;
+    sllist_install((void *)(&descriptor_custom_root), (void *)dptr);
 }
 
 
 descriptor_custom_t * descriptor_find(uint8_t tag){
-    descriptor_custom_t * dptr;
-    dptr = descriptor_custom_root;
-    while (dptr){
-        if (dptr->tag == tag){
-            return(dptr);
-        }
-        dptr = dptr->next;
-    }
-    return(NULL);
+    return (descriptor_custom_t *)sllist_find((void *)(&descriptor_custom_root), tag);
 }
 
 
