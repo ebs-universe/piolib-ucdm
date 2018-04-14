@@ -151,7 +151,8 @@ void ucdm_install_bitw_handler(uint16_t addr,
     return;
 }
 
-
+// TODO Consider refactoring initial address check for all functions 
+// into an inline wrapper for the compiler to strip away later.
 uint8_t ucdm_set_register(uint16_t addr, uint16_t value){
     if (addr > DMAP_MAXREGS){
         return 1;
@@ -282,9 +283,19 @@ uint8_t ucdm_get_bit(uint16_t addrb){
     reg_at = ucdm_acctype[addr] & UCDM_AT_REGR_MASK;
     switch (reg_at){
         case UCDM_AT_REGR_NORM:
-            return (ucdm_register[addr].data & mask); 
+            if (ucdm_register[addr].data & mask){
+                return 0xFF;
+            }
+            else{
+                return 0x00;
+            }
         case UCDM_AT_REGR_PTR:
-            return (*(ucdm_register[addr].ptr)) & mask;
+            if (*(ucdm_register[addr].ptr) & mask){
+                return 0xFF;
+            }
+            else{
+                return 0x00;
+            }
         case UCDM_AT_REGR_FUNC:
         case UCDM_AT_REGR_RESV:
         default:
