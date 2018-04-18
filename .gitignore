@@ -13,4 +13,5 @@ test/firmware/doc
 *build
 *.egg-info
 *.pytest_cache
+.eggs
 dist
