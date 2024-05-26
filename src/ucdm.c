@@ -30,7 +30,7 @@
  */
 
 #include <string.h>
-#include "ucdm.h"
+#include "ucdm/ucdm.h"
 
 uint16_t DMAP_MAXBITS;
 uint16_t ucdm_diagnostic_register;
