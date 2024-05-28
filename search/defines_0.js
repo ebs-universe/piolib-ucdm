@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ucdm_5fat_5fbitw_5fhf_78',['UCDM_AT_BITW_HF',['../ucdm_8h.html#a0929345eceaa7db8bb2d1c2b18a72d80',1,'ucdm.h']]],
+  ['ucdm_5fat_5fbitw_5fmask_79',['UCDM_AT_BITW_MASK',['../ucdm_8h.html#a547b229bad6e9668c74badc82ea1d5bc',1,'ucdm.h']]],
+  ['ucdm_5fat_5fbitw_5fro_80',['UCDM_AT_BITW_RO',['../ucdm_8h.html#afc69fd3bb8aaaaa1c728a59952653524',1,'ucdm.h']]],
+  ['ucdm_5fat_5fbitw_5fwe_81',['UCDM_AT_BITW_WE',['../ucdm_8h.html#af674ee4645bbdac635387c113d99e8f1',1,'ucdm.h']]],
+  ['ucdm_5fat_5fbitw_5fwe_5fhf_82',['UCDM_AT_BITW_WE_HF',['../ucdm_8h.html#a5a536896b161e12cc55307799e901fed',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregr_5ffunc_83',['UCDM_AT_REGR_FUNC',['../ucdm_8h.html#aa657fead94749308587a20d289911e9d',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregr_5fmask_84',['UCDM_AT_REGR_MASK',['../ucdm_8h.html#af53a6a44a02d0ae17c28e2fef3db6658',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregr_5fnorm_85',['UCDM_AT_REGR_NORM',['../ucdm_8h.html#af24744a448a6e398956937884e7f63fe',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregr_5fptr_86',['UCDM_AT_REGR_PTR',['../ucdm_8h.html#a58c331ca32f2c3ede1030c9619cfdbbe',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregr_5fresv_87',['UCDM_AT_REGR_RESV',['../ucdm_8h.html#a09b1514f91345cb887ee1da957c81790',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5fhf_88',['UCDM_AT_REGW_HF',['../ucdm_8h.html#a6bf9cb023a013034895a00a1e43f7432',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5fmask_89',['UCDM_AT_REGW_MASK',['../ucdm_8h.html#a6825dfe2c82ed7a9b060a81dc18d6220',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5ftype_5ffunc_90',['UCDM_AT_REGW_TYPE_FUNC',['../ucdm_8h.html#a4a9677673acb8dd964d3be17b139cc86',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5ftype_5fmask_91',['UCDM_AT_REGW_TYPE_MASK',['../ucdm_8h.html#aed2066c3ec8b0db17e211cfdafcc97a6',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5ftype_5fnormal_92',['UCDM_AT_REGW_TYPE_NORMAL',['../ucdm_8h.html#a0a8ff26b9620efc60340db1e605eaf73',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5ftype_5fptr_93',['UCDM_AT_REGW_TYPE_PTR',['../ucdm_8h.html#a7b845b350c0b176e7927e6e1060b9246',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5ftype_5fro_94',['UCDM_AT_REGW_TYPE_RO',['../ucdm_8h.html#af24ad1a95a17aa83e70dd499a74a3469',1,'ucdm.h']]],
+  ['ucdm_5fat_5fregw_5fvalidate_95',['UCDM_AT_REGW_VALIDATE',['../ucdm_8h.html#a30718d758ebb02161c8b0af1efef7dc5',1,'ucdm.h']]]
+];
