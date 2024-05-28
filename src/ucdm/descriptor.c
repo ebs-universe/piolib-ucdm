@@ -27,7 +27,7 @@
 
 #include <string.h>
 #include <ds/sllist.h>
-#include "ucdm/descriptor.h"
+#include "descriptor.h"
 
 
 descriptor_custom_t * descriptor_custom_root = NULL;

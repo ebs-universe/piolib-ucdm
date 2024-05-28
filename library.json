@@ -17,7 +17,11 @@
     "homepage": "https://github.com/ebs-universe",
     "frameworks": "*",
     "platforms": "*",
-    "dependencies": {
-        "chintal/ebs-ds": "^0.1.1"
-    }
+    "dependencies": [
+        { 
+            "owner": "chintal",
+            "name": "ebs-ds",
+            "version": "^0.2.0"
+        }
+    ]
   }
