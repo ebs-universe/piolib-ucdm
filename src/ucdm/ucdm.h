@@ -181,6 +181,7 @@
 #ifndef UCDM_H
 #define UCDM_H
 
+#include <platform/types.h>
 #include <ds/avltree.h>
 #include <stdint.h>
 
@@ -279,18 +280,18 @@ extern uint16_t DMAP_MAXBITS;
 /**
  * @name UCDM Common Setup Functions
  */
-/**@{*/ 
+/**@{*/
 
 /** 
   * \brief Intitialize the UCDM subsystem.
   */
 extern void ucdm_init(void);
-/**@}*/ 
+/**@}*/
 
 /**
  * @name UCDM Register Configuration Functions for Register Read
  */
-/**@{*/ 
+/**@{*/
 
 /** 
  * \brief Configure UCDM register read access on this register to redirect to a pointer. 

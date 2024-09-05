@@ -43,24 +43,20 @@ static inline void _ucdm_registers_init(void);
 static inline void _ucdm_acctype_init(void);
 static inline void _ucdm_handlers_init(void);
 
-static inline void _ucdm_registers_init(void)
-{
+static inline void _ucdm_registers_init(void){
     memset(&ucdm_register, 0, sizeof(ucdm_register_t) * DMAP_MAXREGS);
 }
 
-static inline void _ucdm_acctype_init(void)
-{
+static inline void _ucdm_acctype_init(void){
     memset(&ucdm_acctype, 0, sizeof(uint8_t) * DMAP_MAXREGS);
 }
 
-static inline void _ucdm_handlers_init(void)
-{
+static inline void _ucdm_handlers_init(void){
     ucdm_bwht.root = NULL;
     ucdm_rwht.root = NULL;
 }
 
-void ucdm_init(void)
-{
+void ucdm_init(void){
     DMAP_MAXBITS = DMAP_MAXREGS * 16;
     _ucdm_registers_init();
     _ucdm_acctype_init();
@@ -140,7 +136,6 @@ static void _prepare_bitw_handler(avlt_node_t * node, uint16_t addr,
     node->key = addr;
     return;
 }
-
 
 void ucdm_install_bitw_handler(uint16_t addr, 
                                avlt_node_t * bwh_node, 

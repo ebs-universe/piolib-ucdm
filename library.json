@@ -22,6 +22,11 @@
             "owner": "chintal",
             "name": "ebs-ds",
             "version": "^0.2.0"
+        },
+        { 
+            "owner": "chintal",
+            "name": "ebs-platform",
+            "version": "^0.2.0"
         }
     ]
   }
