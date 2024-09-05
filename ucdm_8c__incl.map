@@ -1,7 +1,8 @@
 <map id="ucdm/ucdm.c" name="ucdm/ucdm.c">
-<area shape="rect" id="node1" title="Implementation the Unified Configuration and Data Manager." alt="" coords="33,5,142,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" id="node3" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="100,80,171,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="31,155,130,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="155,155,225,181"/>
+<area shape="rect" id="node1" title="Implementation the Unified Configuration and Data Manager." alt="" coords="107,5,216,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="79,80,150,107"/>
+<area shape="rect" id="node3" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="174,80,245,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,155,136,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="160,155,259,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="283,155,354,181"/>
 </map>

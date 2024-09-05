@@ -11,7 +11,9 @@ digraph "ucdm/ucdm.c"
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="ucdm.h",height=0.2,width=0.4,color="black",URL="$ucdm_8h.html",tooltip="Interface and usage of the Unified Configuration and Data Manager."];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="ds/avltree.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node4 [label="platform/types.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="stdint.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node5 [label="ds/avltree.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="stdint.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }
