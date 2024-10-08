@@ -88,8 +88,7 @@ $(document).ready(function(){initNavTree('ucdm_8h.html',''); initResizable(); })
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">ucdm.h File Reference</div>  </div>
 </div><!--header-->
@@ -100,10 +99,11 @@ $(document).ready(function(){initNavTree('ucdm_8h.html',''); initResizable(); })
 <div class="textblock"><code>#include &lt;platform/types.h&gt;</code><br />
 <code>#include &lt;ds/avltree.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;config.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ucdm.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h__incl.svg" width="360" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h__incl.svg" width="474" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -128,17 +128,17 @@ Macros</h2></td></tr>
 <tr class="memitem:a08e384bc6668def55860f1385dc189a2"><td class="memItemLeft" align="right" valign="top"><a id="a08e384bc6668def55860f1385dc189a2"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UCDM_EXST_TIMESYNC_REQ</b>&#160;&#160;&#160;0x02</td></tr>
 <tr class="separator:a08e384bc6668def55860f1385dc189a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">UCDM Access Type Definitions for Register Read</div></td></tr>
-<tr class="memitem:af53a6a44a02d0ae17c28e2fef3db6658"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#af53a6a44a02d0ae17c28e2fef3db6658">UCDM_AT_REGR_MASK</a>&#160;&#160;&#160;0x03</td></tr>
-<tr class="separator:af53a6a44a02d0ae17c28e2fef3db6658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af24744a448a6e398956937884e7f63fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#af24744a448a6e398956937884e7f63fe">UCDM_AT_REGR_NORM</a>&#160;&#160;&#160;0x00</td></tr>
-<tr class="separator:af24744a448a6e398956937884e7f63fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58c331ca32f2c3ede1030c9619cfdbbe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a58c331ca32f2c3ede1030c9619cfdbbe">UCDM_AT_REGR_PTR</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="separator:a58c331ca32f2c3ede1030c9619cfdbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa657fead94749308587a20d289911e9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aa657fead94749308587a20d289911e9d">UCDM_AT_REGR_FUNC</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="separator:aa657fead94749308587a20d289911e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09b1514f91345cb887ee1da957c81790"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a09b1514f91345cb887ee1da957c81790">UCDM_AT_REGR_RESV</a>&#160;&#160;&#160;0x03</td></tr>
-<tr class="separator:a09b1514f91345cb887ee1da957c81790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">UCDM Access Type Definitions for Register and Bit Read</div></td></tr>
+<tr class="memitem:a533f13d2ca86575a21d1d5ee21bc7e41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a533f13d2ca86575a21d1d5ee21bc7e41">UCDM_AT_READ_MASK</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:a533f13d2ca86575a21d1d5ee21bc7e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2537eab1c4fd957d649a83b38fa59bd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a2537eab1c4fd957d649a83b38fa59bd1">UCDM_AT_READ_NONE</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a2537eab1c4fd957d649a83b38fa59bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17468e158f59e72e875367f278bb637"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#ac17468e158f59e72e875367f278bb637">UCDM_AT_READ_NORM</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ac17468e158f59e72e875367f278bb637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdbef9b4ce7400110c1ad067d708ed8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#abdbef9b4ce7400110c1ad067d708ed8b">UCDM_AT_READ_PTR</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:abdbef9b4ce7400110c1ad067d708ed8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6fcbcc147d8131c700ba2029e736fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aaf6fcbcc147d8131c700ba2029e736fc">UCDM_AT_READ_FUNC</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:aaf6fcbcc147d8131c700ba2029e736fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Access Type Definitions for Bit Write</div></td></tr>
 <tr class="memitem:a547b229bad6e9668c74badc82ea1d5bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a547b229bad6e9668c74badc82ea1d5bc">UCDM_AT_BITW_MASK</a>&#160;&#160;&#160;0x0C</td></tr>
 <tr class="separator:a547b229bad6e9668c74badc82ea1d5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,12 +170,21 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:afca0993c5a0de38497015fb612d40d36"><td class="memItemLeft" align="right" valign="top"><a id="afca0993c5a0de38497015fb612d40d36"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_rw_handler_t</b>) (uint16_t)</td></tr>
-<tr class="separator:afca0993c5a0de38497015fb612d40d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83e5cce7abe70cf63113d67038ad9515"><td class="memItemLeft" align="right" valign="top"><a id="a83e5cce7abe70cf63113d67038ad9515"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_bw_handler_t</b>) (uint16_t, uint16_t)</td></tr>
-<tr class="separator:a83e5cce7abe70cf63113d67038ad9515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d25eca74e88f55df2da7e814fb8790"><td class="memItemLeft" align="right" valign="top"><a id="ad9d25eca74e88f55df2da7e814fb8790"></a>
+typedef UCDM_REG_ADDR_TYPE&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_addr_t</b></td></tr>
+<tr class="separator:ad9d25eca74e88f55df2da7e814fb8790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a9f79cae8c1dc5000bac447a550025"><td class="memItemLeft" align="right" valign="top"><a id="a01a9f79cae8c1dc5000bac447a550025"></a>
+typedef UCDM_BIT_ADDR_TYPE&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_addrb_t</b></td></tr>
+<tr class="separator:a01a9f79cae8c1dc5000bac447a550025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121a787806728438b617f5254fa3e71a"><td class="memItemLeft" align="right" valign="top"><a id="a121a787806728438b617f5254fa3e71a"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_rw_handler_t</b>) (ucdm_addr_t)</td></tr>
+<tr class="separator:a121a787806728438b617f5254fa3e71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6d22de5d0ed6636d12c370ab7225d0"><td class="memItemLeft" align="right" valign="top"><a id="a5e6d22de5d0ed6636d12c370ab7225d0"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_bw_handler_t</b>) (ucdm_addr_t, uint16_t)</td></tr>
+<tr class="separator:a5e6d22de5d0ed6636d12c370ab7225d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03190b395fd74a492879771ee83d10aa"><td class="memItemLeft" align="right" valign="top"><a id="a03190b395fd74a492879771ee83d10aa"></a>
+typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_acctype_t</b></td></tr>
+<tr class="separator:a03190b395fd74a492879771ee83d10aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a472a0c9cf5b7a53fddba10ea22ea2335"><td class="memItemLeft" align="right" valign="top"><a id="a472a0c9cf5b7a53fddba10ea22ea2335"></a>
 typedef union <a class="el" href="union_u_c_d_m___r_e_g_i_s_t_e_r__t.html">UCDM_REGISTER_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_register_t</b></td></tr>
 <tr class="separator:a472a0c9cf5b7a53fddba10ea22ea2335"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,84 +197,80 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm
 <tr class="memdesc:a8be24db9dca287a7aa7b38d12c2969d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intitialize the UCDM subsystem. <br /></td></tr>
 <tr class="separator:a8be24db9dca287a7aa7b38d12c2969d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Register Configuration Functions for Register Read</div></td></tr>
-<tr class="memitem:a29ada5274fe87e8d928ddf415e93f2ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a29ada5274fe87e8d928ddf415e93f2ec">ucdm_redirect_regr_ptr</a> (uint16_t addr, uint16_t *target)</td></tr>
-<tr class="memdesc:a29ada5274fe87e8d928ddf415e93f2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register read access on this register to redirect to a pointer.  <a href="ucdm_8h.html#a29ada5274fe87e8d928ddf415e93f2ec">More...</a><br /></td></tr>
-<tr class="separator:a29ada5274fe87e8d928ddf415e93f2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92884fef58c14a810b46e679c9d0b806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a92884fef58c14a810b46e679c9d0b806">ucdm_redirect_regr_func</a> (uint16_t addr, uint16_t target(uint16_t))</td></tr>
-<tr class="memdesc:a92884fef58c14a810b46e679c9d0b806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register read access on this register to redirect to a function pointer.  <a href="ucdm_8h.html#a92884fef58c14a810b46e679c9d0b806">More...</a><br /></td></tr>
-<tr class="separator:a92884fef58c14a810b46e679c9d0b806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afadb3313130bbd61e8469164ebdc960e"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#afadb3313130bbd61e8469164ebdc960e">ucdm_disable_regr</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:afadb3313130bbd61e8469164ebdc960e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable UCDM register register access on register.  <a href="ucdm_8h.html#afadb3313130bbd61e8469164ebdc960e">More...</a><br /></td></tr>
+<tr class="separator:afadb3313130bbd61e8469164ebdc960e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eb2df29b9aba9133b2ef0d2718cf048"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a1eb2df29b9aba9133b2ef0d2718cf048">ucdm_enable_regr</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:a1eb2df29b9aba9133b2ef0d2718cf048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UCDM register register access on register.  <a href="ucdm_8h.html#a1eb2df29b9aba9133b2ef0d2718cf048">More...</a><br /></td></tr>
+<tr class="separator:a1eb2df29b9aba9133b2ef0d2718cf048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa872a93a9738e76a33493a3d9c1eddb1"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aa872a93a9738e76a33493a3d9c1eddb1">ucdm_redirect_regr_ptr</a> (ucdm_addr_t addr, uint16_t *target)</td></tr>
+<tr class="memdesc:aa872a93a9738e76a33493a3d9c1eddb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register read access on this register to redirect to a pointer.  <a href="ucdm_8h.html#aa872a93a9738e76a33493a3d9c1eddb1">More...</a><br /></td></tr>
+<tr class="separator:aa872a93a9738e76a33493a3d9c1eddb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d111350a23d5fb38c93e67acf1b5451"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a9d111350a23d5fb38c93e67acf1b5451">ucdm_redirect_regr_func</a> (ucdm_addr_t addr, uint16_t target(ucdm_addr_t))</td></tr>
+<tr class="memdesc:a9d111350a23d5fb38c93e67acf1b5451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register read access on this register to redirect to a function pointer.  <a href="ucdm_8h.html#a9d111350a23d5fb38c93e67acf1b5451">More...</a><br /></td></tr>
+<tr class="separator:a9d111350a23d5fb38c93e67acf1b5451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Register Configuration Functions for Bit Write</div></td></tr>
-<tr class="memitem:a89c3bc39e2d0cc133ed6805ddf64df2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a89c3bc39e2d0cc133ed6805ddf64df2e">ucdm_enable_bitw</a> (uint16_t addr)</td></tr>
-<tr class="memdesc:a89c3bc39e2d0cc133ed6805ddf64df2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UCDM bit write access on register.  <a href="ucdm_8h.html#a89c3bc39e2d0cc133ed6805ddf64df2e">More...</a><br /></td></tr>
-<tr class="separator:a89c3bc39e2d0cc133ed6805ddf64df2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2176fefcbcf8e2a0ff3c735818102e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#ac2176fefcbcf8e2a0ff3c735818102e1">ucdm_disable_bitw</a> (uint16_t addr)</td></tr>
-<tr class="memdesc:ac2176fefcbcf8e2a0ff3c735818102e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable UCDM bit write access on register.  <a href="ucdm_8h.html#ac2176fefcbcf8e2a0ff3c735818102e1">More...</a><br /></td></tr>
-<tr class="separator:ac2176fefcbcf8e2a0ff3c735818102e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4686d022db1f804cb88e2a2d6ad7192"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aa4686d022db1f804cb88e2a2d6ad7192">ucdm_enable_bitw</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:aa4686d022db1f804cb88e2a2d6ad7192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UCDM bit write access on register.  <a href="ucdm_8h.html#aa4686d022db1f804cb88e2a2d6ad7192">More...</a><br /></td></tr>
+<tr class="separator:aa4686d022db1f804cb88e2a2d6ad7192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b4f7426a4eef74fccfda9a0ca3e5fb6"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a4b4f7426a4eef74fccfda9a0ca3e5fb6">ucdm_disable_bitw</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:a4b4f7426a4eef74fccfda9a0ca3e5fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable UCDM bit write access on register.  <a href="ucdm_8h.html#a4b4f7426a4eef74fccfda9a0ca3e5fb6">More...</a><br /></td></tr>
+<tr class="separator:a4b4f7426a4eef74fccfda9a0ca3e5fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Register Configuration Functions for Register Write</div></td></tr>
-<tr class="memitem:ab6df0fd1b0a041fc1db2165d46573f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#ab6df0fd1b0a041fc1db2165d46573f21">ucdm_enable_regw</a> (uint16_t addr)</td></tr>
-<tr class="memdesc:ab6df0fd1b0a041fc1db2165d46573f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UCDM register write access on register.  <a href="ucdm_8h.html#ab6df0fd1b0a041fc1db2165d46573f21">More...</a><br /></td></tr>
-<tr class="separator:ab6df0fd1b0a041fc1db2165d46573f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af86ecdcc50460e402af95c267d02e0f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#af86ecdcc50460e402af95c267d02e0f0">ucdm_disable_regw</a> (uint16_t addr)</td></tr>
-<tr class="memdesc:af86ecdcc50460e402af95c267d02e0f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable UCDM register write access on register.  <a href="ucdm_8h.html#af86ecdcc50460e402af95c267d02e0f0">More...</a><br /></td></tr>
-<tr class="separator:af86ecdcc50460e402af95c267d02e0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e43332a647807b509ae0a690ef9d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aa6e43332a647807b509ae0a690ef9d3a">ucdm_redirect_regw_ptr</a> (uint16_t addr, uint16_t *target)</td></tr>
-<tr class="memdesc:aa6e43332a647807b509ae0a690ef9d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register write access on this register to redirect to a pointer.  <a href="ucdm_8h.html#aa6e43332a647807b509ae0a690ef9d3a">More...</a><br /></td></tr>
-<tr class="separator:aa6e43332a647807b509ae0a690ef9d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a972356d785214fc5b2c23483f859f205"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a972356d785214fc5b2c23483f859f205">ucdm_redirect_regw_func</a> (uint16_t addr, void target(uint16_t, uint16_t))</td></tr>
-<tr class="memdesc:a972356d785214fc5b2c23483f859f205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register write access on this register to redirect to a function pointer.  <a href="ucdm_8h.html#a972356d785214fc5b2c23483f859f205">More...</a><br /></td></tr>
-<tr class="separator:a972356d785214fc5b2c23483f859f205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd2008076de02636acd04189c80e4ff"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a2bd2008076de02636acd04189c80e4ff">ucdm_disable_regw</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:a2bd2008076de02636acd04189c80e4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable UCDM register write access on a register.  <a href="ucdm_8h.html#a2bd2008076de02636acd04189c80e4ff">More...</a><br /></td></tr>
+<tr class="separator:a2bd2008076de02636acd04189c80e4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc878481316567547dcd14a1859654a8"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#adc878481316567547dcd14a1859654a8">ucdm_enable_regw</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:adc878481316567547dcd14a1859654a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UCDM register write access on a normal register.  <a href="ucdm_8h.html#adc878481316567547dcd14a1859654a8">More...</a><br /></td></tr>
+<tr class="separator:adc878481316567547dcd14a1859654a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698bc2d34a288d43c570f87f5ac3d461"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a698bc2d34a288d43c570f87f5ac3d461">ucdm_redirect_regw_ptr</a> (ucdm_addr_t addr, uint16_t *target)</td></tr>
+<tr class="memdesc:a698bc2d34a288d43c570f87f5ac3d461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register write access on this register to redirect to a pointer.  <a href="ucdm_8h.html#a698bc2d34a288d43c570f87f5ac3d461">More...</a><br /></td></tr>
+<tr class="separator:a698bc2d34a288d43c570f87f5ac3d461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a332a25c4993000e28caca3ef6198b"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a30a332a25c4993000e28caca3ef6198b">ucdm_redirect_regw_func</a> (ucdm_addr_t addr, void target(ucdm_addr_t, uint16_t))</td></tr>
+<tr class="memdesc:a30a332a25c4993000e28caca3ef6198b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure UCDM register write access on this register to redirect to a function pointer.  <a href="ucdm_8h.html#a30a332a25c4993000e28caca3ef6198b">More...</a><br /></td></tr>
+<tr class="separator:a30a332a25c4993000e28caca3ef6198b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Register Configuration Functions for Post-Write Handler Functions</div></td></tr>
-<tr class="memitem:a155c91144a9e041689d1a20c213d2b35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a155c91144a9e041689d1a20c213d2b35">ucdm_install_regw_handler</a> (uint16_t addr, avlt_node_t *rwh_node, ucdm_rw_handler_t handler)</td></tr>
-<tr class="memdesc:a155c91144a9e041689d1a20c213d2b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Register Write Handler for a UCDM register.  <a href="ucdm_8h.html#a155c91144a9e041689d1a20c213d2b35">More...</a><br /></td></tr>
-<tr class="separator:a155c91144a9e041689d1a20c213d2b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67c6071abd50c755c1a8eb6e4b736732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a67c6071abd50c755c1a8eb6e4b736732">ucdm_install_bitw_handler</a> (uint16_t addr, avlt_node_t *bwh_node, ucdm_bw_handler_t handler)</td></tr>
-<tr class="memdesc:a67c6071abd50c755c1a8eb6e4b736732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Bit Write Handler for a UCDM register.  <a href="ucdm_8h.html#a67c6071abd50c755c1a8eb6e4b736732">More...</a><br /></td></tr>
-<tr class="separator:a67c6071abd50c755c1a8eb6e4b736732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa99f79606630b244c8168302e4afa0"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#afaa99f79606630b244c8168302e4afa0">ucdm_install_regw_handler</a> (ucdm_addr_t addr, avlt_node_t *rwh_node, ucdm_rw_handler_t handler)</td></tr>
+<tr class="memdesc:afaa99f79606630b244c8168302e4afa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Register Write Handler for a UCDM register.  <a href="ucdm_8h.html#afaa99f79606630b244c8168302e4afa0">More...</a><br /></td></tr>
+<tr class="separator:afaa99f79606630b244c8168302e4afa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73a5db58e4790a5a616f087c33e9ba8"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#ae73a5db58e4790a5a616f087c33e9ba8">ucdm_install_bitw_handler</a> (ucdm_addr_t addr, avlt_node_t *bwh_node, ucdm_bw_handler_t handler)</td></tr>
+<tr class="memdesc:ae73a5db58e4790a5a616f087c33e9ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Bit Write Handler for a UCDM register.  <a href="ucdm_8h.html#ae73a5db58e4790a5a616f087c33e9ba8">More...</a><br /></td></tr>
+<tr class="separator:ae73a5db58e4790a5a616f087c33e9ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Register Access Functions</div></td></tr>
-<tr class="memitem:a9f6941401481233fce87290d2d08eaca"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a9f6941401481233fce87290d2d08eaca">ucdm_set_register</a> (uint16_t addr, uint16_t value)</td></tr>
-<tr class="memdesc:a9f6941401481233fce87290d2d08eaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of a UCDM register from protocol.  <a href="ucdm_8h.html#a9f6941401481233fce87290d2d08eaca">More...</a><br /></td></tr>
-<tr class="separator:a9f6941401481233fce87290d2d08eaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6abcf9cd3dc3d47d7fe14499f23006d4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a6abcf9cd3dc3d47d7fe14499f23006d4">ucdm_get_register</a> (uint16_t addr)</td></tr>
-<tr class="memdesc:a6abcf9cd3dc3d47d7fe14499f23006d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a UCDM register from protocol.  <a href="ucdm_8h.html#a6abcf9cd3dc3d47d7fe14499f23006d4">More...</a><br /></td></tr>
-<tr class="separator:a6abcf9cd3dc3d47d7fe14499f23006d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112d896fadf03daa791c5cfb85035cb2"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a112d896fadf03daa791c5cfb85035cb2">ucdm_set_register</a> (ucdm_addr_t addr, uint16_t value)</td></tr>
+<tr class="memdesc:a112d896fadf03daa791c5cfb85035cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of a UCDM register from protocol.  <a href="ucdm_8h.html#a112d896fadf03daa791c5cfb85035cb2">More...</a><br /></td></tr>
+<tr class="separator:a112d896fadf03daa791c5cfb85035cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114b48e3559aa2ba95a9dcdbbd50a0b6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a114b48e3559aa2ba95a9dcdbbd50a0b6">ucdm_get_register</a> (ucdm_addr_t addr)</td></tr>
+<tr class="memdesc:a114b48e3559aa2ba95a9dcdbbd50a0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a UCDM register from protocol.  <a href="ucdm_8h.html#a114b48e3559aa2ba95a9dcdbbd50a0b6">More...</a><br /></td></tr>
+<tr class="separator:a114b48e3559aa2ba95a9dcdbbd50a0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UCDM Bit Access Functions</div></td></tr>
-<tr class="memitem:aa05ba9eb6e924ad628781fd8c98b8d42"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#aa05ba9eb6e924ad628781fd8c98b8d42">ucdm_set_bit</a> (uint16_t addrb)</td></tr>
-<tr class="memdesc:aa05ba9eb6e924ad628781fd8c98b8d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a UCDM bit from protocol.  <a href="ucdm_8h.html#aa05ba9eb6e924ad628781fd8c98b8d42">More...</a><br /></td></tr>
-<tr class="separator:aa05ba9eb6e924ad628781fd8c98b8d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28b3d47019c0a1bb66dc569046cd3817"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a28b3d47019c0a1bb66dc569046cd3817">ucdm_clear_bit</a> (uint16_t addrb)</td></tr>
-<tr class="memdesc:a28b3d47019c0a1bb66dc569046cd3817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a UCDM bit from protocol.  <a href="ucdm_8h.html#a28b3d47019c0a1bb66dc569046cd3817">More...</a><br /></td></tr>
-<tr class="separator:a28b3d47019c0a1bb66dc569046cd3817"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a654e9313cbfbe8e0e05eb14966db9a8a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a654e9313cbfbe8e0e05eb14966db9a8a">ucdm_get_bit</a> (uint16_t addrb)</td></tr>
-<tr class="memdesc:a654e9313cbfbe8e0e05eb14966db9a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a UCDM bit from protocol.  <a href="ucdm_8h.html#a654e9313cbfbe8e0e05eb14966db9a8a">More...</a><br /></td></tr>
-<tr class="separator:a654e9313cbfbe8e0e05eb14966db9a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c67499b748795e01bdffb17d7ceb995"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a6c67499b748795e01bdffb17d7ceb995">ucdm_set_bit</a> (ucdm_addrb_t addrb)</td></tr>
+<tr class="memdesc:a6c67499b748795e01bdffb17d7ceb995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a UCDM bit from protocol.  <a href="ucdm_8h.html#a6c67499b748795e01bdffb17d7ceb995">More...</a><br /></td></tr>
+<tr class="separator:a6c67499b748795e01bdffb17d7ceb995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc84fe0eb923e844eda3dc689bb6921"><td class="memItemLeft" align="right" valign="top">HAL_BASE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#acfc84fe0eb923e844eda3dc689bb6921">ucdm_clear_bit</a> (ucdm_addrb_t addrb)</td></tr>
+<tr class="memdesc:acfc84fe0eb923e844eda3dc689bb6921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a UCDM bit from protocol.  <a href="ucdm_8h.html#acfc84fe0eb923e844eda3dc689bb6921">More...</a><br /></td></tr>
+<tr class="separator:acfc84fe0eb923e844eda3dc689bb6921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a8cd2f4803b9468624d3551491b6f4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a17a8cd2f4803b9468624d3551491b6f4">ucdm_get_bit</a> (ucdm_addrb_t addrb)</td></tr>
+<tr class="memdesc:a17a8cd2f4803b9468624d3551491b6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a UCDM bit from protocol.  <a href="ucdm_8h.html#a17a8cd2f4803b9468624d3551491b6f4">More...</a><br /></td></tr>
+<tr class="separator:a17a8cd2f4803b9468624d3551491b6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">UCDM Configuration and Storage Containers</div></td></tr>
+<tr class="memitem:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="memItemLeft" align="right" valign="top"><a id="a18d9dfe7e9dc27311a189e008cecfb7f"></a>
+<a class="el" href="union_u_c_d_m___r_e_g_i_s_t_e_r__t.html">ucdm_register_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a> []</td></tr>
+<tr class="memdesc:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual storage for UCDM registers. <br /></td></tr>
+<tr class="separator:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87e0e201dae03c9933a76c4dde1cbfe"><td class="memItemLeft" align="right" valign="top"><a id="ad87e0e201dae03c9933a76c4dde1cbfe"></a>
+ucdm_acctype_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#ad87e0e201dae03c9933a76c4dde1cbfe">ucdm_acctype</a> []</td></tr>
+<tr class="memdesc:ad87e0e201dae03c9933a76c4dde1cbfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual storage for UCDM access type settings. <br /></td></tr>
+<tr class="separator:ad87e0e201dae03c9933a76c4dde1cbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb2aefb5aa0213bde51d93de31ce8def"><td class="memItemLeft" align="right" valign="top"><a id="aeb2aefb5aa0213bde51d93de31ce8def"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_diagnostic_register</b></td></tr>
 <tr class="separator:aeb2aefb5aa0213bde51d93de31ce8def"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a904aa10aebb01ad2067dba1ba85b909a"><td class="memItemLeft" align="right" valign="top"><a id="a904aa10aebb01ad2067dba1ba85b909a"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucdm_exception_status</b></td></tr>
 <tr class="separator:a904aa10aebb01ad2067dba1ba85b909a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">UCDM Configuration and Storage Containers</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Most of the containers defined here should be defined in the application layer as per the requirements of the application. </p>
-</div></td></tr>
-<tr class="memitem:a31a97557f9d99c41731cb7d866264d28"><td class="memItemLeft" align="right" valign="top"><a id="a31a97557f9d99c41731cb7d866264d28"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a31a97557f9d99c41731cb7d866264d28">DMAP_MAXREGS</a></td></tr>
-<tr class="memdesc:a31a97557f9d99c41731cb7d866264d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of UCDM registers supported. <br /></td></tr>
-<tr class="separator:a31a97557f9d99c41731cb7d866264d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="memItemLeft" align="right" valign="top"><a id="a18d9dfe7e9dc27311a189e008cecfb7f"></a>
-<a class="el" href="union_u_c_d_m___r_e_g_i_s_t_e_r__t.html">ucdm_register_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a> []</td></tr>
-<tr class="memdesc:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual storage for UCDM registers. <br /></td></tr>
-<tr class="separator:a18d9dfe7e9dc27311a189e008cecfb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da5bda1d1c77ad7a9bb50b30039c5cf"><td class="memItemLeft" align="right" valign="top"><a id="a5da5bda1d1c77ad7a9bb50b30039c5cf"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a> []</td></tr>
-<tr class="memdesc:a5da5bda1d1c77ad7a9bb50b30039c5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual storage for UCDM access type settings. <br /></td></tr>
-<tr class="separator:a5da5bda1d1c77ad7a9bb50b30039c5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75f764ffb02f2c0943a3f537b4b8a1a7"><td class="memItemLeft" align="right" valign="top"><a id="a75f764ffb02f2c0943a3f537b4b8a1a7"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ucdm_8h.html#a75f764ffb02f2c0943a3f537b4b8a1a7">DMAP_MAXBITS</a></td></tr>
-<tr class="memdesc:a75f764ffb02f2c0943a3f537b4b8a1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of UCDM bits supported. Defined and caluated as DMAP_MAXREGS * 16 in <code><a class="el" href="ucdm_8c.html" title="Implementation the Unified Configuration and Data Manager.">ucdm.c</a></code> <br /></td></tr>
-<tr class="separator:a75f764ffb02f2c0943a3f537b4b8a1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface and usage of the Unified Configuration and Data Manager. </p>
@@ -275,19 +280,24 @@ UCDM Storage Model</h2>
 <p>The basic register type is uint16_t, and the number of configuration / data registers supported is configurable from within the application. The necessary variables and containers for this purpose need to be defined within the application. The tentatively recommended location is <code>application/main.c</code>.</p>
 <dl class="section see"><dt>See also</dt><dd>UCDM Configuration and Storage Containers</dd></dl>
 <p>Each register can be configured to set allowed access type to one or more of the following :</p><ul>
-<li>Read-Only Register (always allowed) (modbus: Input Registers)</li>
-<li>Read-Write Register (optional) (modbus: Holding Registers)</li>
-<li>16 Read-Only Discrete Bits (always allowed) (modbus: Input Discrete)</li>
-<li>16 Read-Write Discrete Bits (optional) (modbus: Coils)</li>
+<li>Read-Only Register (modbus: Input Registers)</li>
+<li>Read-Write Register (modbus: Holding Registers)</li>
+<li>16 Read-Only Discrete Bits (modbus: Input Discrete)</li>
+<li>16 Read-Write Discrete Bits (modbus: Coils)</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md1"></a>
+Redirection</h2>
+<p>Though the UCDM library itself maintains storage, it is generally recommended to avoid using UCDM registers for storage and instead opting for one of the redirection methods. Redirection is configured through the register's access type configuration (ucdm_acctype). The following sections discuss the various available options.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Bit-level Access</h2>
 <p>Only basic support of bit read / write is implemented. Bit level access functions will only operate on normal UCDM registers, ie, registers which are stored directly in UCDM register storage. Specifically :</p><ul>
-<li>Bit read is always allowed, but is useful only for bits in normal UCDM registers.</li>
-<li>Bit write must be enabled if it is to be used, per register. Bit write should only be used on normal UCDM registers. Enabling it on registers with other write types will cause all manner of undesireable behavior.</li>
+<li>Bit read is allowed for all registers where read is allowed. However, it may not be appropriate for bits in UCDM registers with redirections in place. Bit reads for pointers will read the full register and return only the requested bit. <br  />
+</li>
+<li>Bit write must be enabled if it is to be used, per register. Bit write should only be used on normal or pointer UCDM registers.</li>
 </ul>
+<p>Bit reads and writes are not supported on registered configured for redirection using functions.</p>
 <dl class="section see"><dt>See also</dt><dd>UCDM Access Type Definitions for Bit Write</dd></dl>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Register-level Access</h2>
 <p>Register read / write support is more thoroughly supported, allowing a variety of access types to be used. This implementation of the UCDM treats register read / write as the preferred (and primary) access method.</p>
 <p>As in the case of bit read, register read is always allowed. However, register read can involve one of the following :</p><ul>
@@ -300,33 +310,36 @@ Register-level Access</h2>
 <ul>
 <li>Normal register write, where content of the UCDM storage is written.</li>
 <li>Pointer register write, where content of the UCDM storage is treated as a pointer to where the data should be written (equal in size to the register).</li>
-<li>Function Pointer register write, where content of the UCDM storage is treated as a pointer to a function which must be called with the data to be written (equal in size to the register) and the register address. Such registers MUST be write only registers. Read will be allowed, but unusable.</li>
+<li>Function Pointer register write, where content of the UCDM storage is treated as a pointer to a function which must be called with the data to be written (equal in size to the register) and the register address. Such registers MUST be write only registers.</li>
 </ul>
 <dl class="section see"><dt>See also</dt><dd>UCDM Access Type Definitions for Register Write</dd></dl>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Post-Write Handlers</h2>
-<p>For both register and bit write, UCDM can be configured to execute post-write handler functions after successful write. These handler functions must be set per-register, and will be called once per call to ucdm_set_register or ucdm_set_bit. In the case of register write, all types of writes can trigger the post-write handler function. Bit-write itself is not allowed for all registers other than normal ones, and post bit-write handlers are not applicable for registers with other write types.</p>
-<p>In general, bit write handlers are only called in response to a successful bit write operation. Register write handlers are called in response to a successful register write operation, as well as a successful bit write operation for which a bit write handler is not defined, but a register write handler is.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
+Post-Write Handlers</h2>
+<p>For both register and bit write, UCDM can be configured to execute post-write handler functions after successful write. These handler functions must be set per-register, and will be called once per call to ucdm_set_register or ucdm_set_bit. In the case of register write, all types of writes can trigger the post-write handler function. Bit-write itself is not allowed for registers of the function write type, and post bit-write handlers are not applicable for such registers.</p>
+<p>In general, bit write handlers are only called in response to a successful bit write operation. Register write handlers are called in response to a successful register write operation, as well as a successful bit write operation for which a bit write handler is not defined, but a register write handler is.</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Application Notes</h2>
-<h1><a class="anchor" id="autotoc_md5"></a>
-Register Access Types</h1>
-<p>Configuring the appropriate access type definitions should be done by the application code using the provided functions in this library's API. This configuration is expected to occur during initialization, and not during normal operation. These functions should therefore not be expected to be well optimized.</p>
-<p>Register access type definitions provided can be used to configure the appropriate access types as needed, but should be avoided. If you do end up trying to use the included definitions for some reason, though, do so with care. The provided definitions are readily usable only if the register in question was previously unconfigured.</p>
-<p>Note that in most cases, it will be necessary to set both the read and write operations on registers to the same type. This must be done by application code utilizing UCDM.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
-Post-Write Handlers</h1>
-<p>When using post-write handlers, remember that the application code using this handler must also provide the necessary data structures to contain and maintain the handler. The functions provided in this libary's API can help you do this, but they will not be called automatically here.</p>
+Register Access Types</h1>
+<p>Configuring the appropriate access type definitions should be done by the application code using the provided functions in this library's API. This configuration is expected to occur during initialization, and not during normal operation.</p>
+<p>Register access type definitions provided can be used to configure the appropriate access types as needed, but should be avoided in favor of the configuration functions. <br  />
+</p>
+<p>Note that in most cases, it will be necessary to set both the read and write operations on registers to the same type. This must be done by application code utilizing UCDM.</p>
 <h1><a class="anchor" id="autotoc_md7"></a>
-Utilizing Function Pointers</h1>
-<p>When using function pointers, either with a function read / write type or as a post-write handler function, remember that these functions will be called from within the UCDM context. This means that the call stack is already pretty deep at this point. Further, communication protocols mounted atop the UCDM which are time-sensitive may not be able to wait for long running function calls to complete before sending a response.</p>
+Post-Write Handlers</h1>
+<p>When using post-write handlers, remember that the application code using this handler must also provide the necessary data structures to contain and maintain the handler. The functions provided in this libary's API can help you do this, but they will not be called automatically here. Post-write handlers can also be pretty expensive, so it is preferable to resort to them only when redirection is insufficient.</p>
 <h1><a class="anchor" id="autotoc_md8"></a>
+Utilizing Function Pointers</h1>
+<p>When using function pointers, either with a function read / write type or as a post-write handler function, remember that these functions will be called from within the UCDM context. This means that the call stack is already pretty deep at this point. Further, communication protocols mounted atop the UCDM which are time-sensitive may not be able to wait for long running function calls to complete before sending a response. Keep these functions short and avoid deep calls. When necessary, just set a global flag and deal with it in the main loop.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
 The Device Map</h1>
 <p>The mapping between the register address and function, as well as the mapping between address and access types, are application specific, and should be defined in the application. The recommended location is <code>application/devicemap.h</code></p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Internal Access</h1>
 <p>The application should internally just set the appropriate variables within the configuration and data buffer directly. The access exposed to the interface will always be more restrictive than that the application itself will require, and considerably more expensive. When they are being accessed via the UCDM, the functions provided by this library ensure the access is done correctly.</p>
-<p>@WARNING This approach will break down on platforms where pointer sizes are not 16 bit. A means to overcome that problem is necessary.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Casting to larger types</h1>
+<p>Users should not use UCDM internal storage with void pointers to simulate stores for larger types. This library does not guarantee that adjacent registers will be contiguous in memory. Specifically, on platforms where pointer sizes are larger than 16 bit, the actual data storage will become discontinuous. To overcome this problem, applications using UCDM to provide access to variables larger than 16-bit should use the pointer redirection functionality.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="ucdm_8c.html" title="Implementation the Unified Configuration and Data Manager.">ucdm.c</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
@@ -344,7 +357,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Bit Write, Enable Post-Write Handler Function (No effect without WE) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00253">253</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00273">273</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -361,7 +374,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Mask for UCDM Access Type, Bit Write </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00247">247</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00267">267</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -378,7 +391,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Bit Write, Not Allowed </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00249">249</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00269">269</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +408,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Bit Write, Write Enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00251">251</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00271">271</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -412,92 +425,92 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Bit Write, Write Enabled, Enable Post-Write Handler Function </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00255">255</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00275">275</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
-<a id="aa657fead94749308587a20d289911e9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa657fead94749308587a20d289911e9d">&#9670;&nbsp;</a></span>UCDM_AT_REGR_FUNC</h2>
+<a id="aaf6fcbcc147d8131c700ba2029e736fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6fcbcc147d8131c700ba2029e736fc">&#9670;&nbsp;</a></span>UCDM_AT_READ_FUNC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UCDM_AT_REGR_FUNC&#160;&#160;&#160;0x02</td>
+          <td class="memname">#define UCDM_AT_READ_FUNC&#160;&#160;&#160;0x03</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Register Read, Function (function ptr in ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00237">237</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00259">259</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
-<a id="af53a6a44a02d0ae17c28e2fef3db6658"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af53a6a44a02d0ae17c28e2fef3db6658">&#9670;&nbsp;</a></span>UCDM_AT_REGR_MASK</h2>
+<a id="a533f13d2ca86575a21d1d5ee21bc7e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533f13d2ca86575a21d1d5ee21bc7e41">&#9670;&nbsp;</a></span>UCDM_AT_READ_MASK</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UCDM_AT_REGR_MASK&#160;&#160;&#160;0x03</td>
+          <td class="memname">#define UCDM_AT_READ_MASK&#160;&#160;&#160;0x03</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Mask for UCDM Access Type, Register Read </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00231">231</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00251">251</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
-<a id="af24744a448a6e398956937884e7f63fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af24744a448a6e398956937884e7f63fe">&#9670;&nbsp;</a></span>UCDM_AT_REGR_NORM</h2>
+<a id="a2537eab1c4fd957d649a83b38fa59bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2537eab1c4fd957d649a83b38fa59bd1">&#9670;&nbsp;</a></span>UCDM_AT_READ_NONE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UCDM_AT_REGR_NORM&#160;&#160;&#160;0x00</td>
+          <td class="memname">#define UCDM_AT_READ_NONE&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Register Read, Not Allowed </p>
+
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00253">253</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+
+</div>
+</div>
+<a id="ac17468e158f59e72e875367f278bb637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17468e158f59e72e875367f278bb637">&#9670;&nbsp;</a></span>UCDM_AT_READ_NORM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UCDM_AT_READ_NORM&#160;&#160;&#160;0x01</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Register Read, Normal (from ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00233">233</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00255">255</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
-<a id="a58c331ca32f2c3ede1030c9619cfdbbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58c331ca32f2c3ede1030c9619cfdbbe">&#9670;&nbsp;</a></span>UCDM_AT_REGR_PTR</h2>
+<a id="abdbef9b4ce7400110c1ad067d708ed8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdbef9b4ce7400110c1ad067d708ed8b">&#9670;&nbsp;</a></span>UCDM_AT_READ_PTR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UCDM_AT_REGR_PTR&#160;&#160;&#160;0x01</td>
+          <td class="memname">#define UCDM_AT_READ_PTR&#160;&#160;&#160;0x02</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Register Read, Pointer (ptr in ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00235">235</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
-
-</div>
-</div>
-<a id="a09b1514f91345cb887ee1da957c81790"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09b1514f91345cb887ee1da957c81790">&#9670;&nbsp;</a></span>UCDM_AT_REGR_RESV</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UCDM_AT_REGR_RESV&#160;&#160;&#160;0x03</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Register Read, Unused Type </p>
-
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00239">239</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00257">257</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +527,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Enable Post-Write Handler Function (No effect without WE) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00265">265</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00285">285</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -531,7 +544,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Mask for UCDM Access Type, Register Write </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00263">263</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00283">283</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -548,7 +561,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Write Enabled, Function (function ptr in ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00277">277</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00297">297</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -565,7 +578,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Mask for UCDM Access Type, Register Write Type </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00269">269</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00289">289</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -582,7 +595,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Write Enabled, Normal (to ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00273">273</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00293">293</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -599,7 +612,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Write Enabled, Pointer (ptr in ucdm storage) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00275">275</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00295">295</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -616,7 +629,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Not Allowed </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00271">271</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00291">291</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
@@ -633,21 +646,21 @@ Internal Access</h1>
 </div><div class="memdoc">
 <p>Register Write, Enable Pre-Write Validation Function (Does not respect WE) </p>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00267">267</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8h_source.html#l00287">287</a> of file <a class="el" href="ucdm_8h_source.html">ucdm.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a28b3d47019c0a1bb66dc569046cd3817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28b3d47019c0a1bb66dc569046cd3817">&#9670;&nbsp;</a></span>ucdm_clear_bit()</h2>
+<a id="acfc84fe0eb923e844eda3dc689bb6921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc84fe0eb923e844eda3dc689bb6921">&#9670;&nbsp;</a></span>ucdm_clear_bit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t ucdm_clear_bit </td>
+          <td class="memname">HAL_BASE_t ucdm_clear_bit </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addrb_t&#160;</td>
           <td class="paramname"><em>addrb</em></td><td>)</td>
           <td></td>
         </tr>
@@ -663,20 +676,20 @@ Internal Access</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 for bit cleared, 0 for access error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00226">226</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00321">321</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
 </div>
 </div>
-<a id="ac2176fefcbcf8e2a0ff3c735818102e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2176fefcbcf8e2a0ff3c735818102e1">&#9670;&nbsp;</a></span>ucdm_disable_bitw()</h2>
+<a id="a4b4f7426a4eef74fccfda9a0ca3e5fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b4f7426a4eef74fccfda9a0ca3e5fb6">&#9670;&nbsp;</a></span>ucdm_disable_bitw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_disable_bitw </td>
+          <td class="memname">HAL_BASE_t ucdm_disable_bitw </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -691,30 +704,29 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00084">84</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00234">234</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_BITW_WE</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00271">UCDM_AT_BITW_WE</a>.</p>
 
 </div>
 </div>
-<a id="af86ecdcc50460e402af95c267d02e0f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af86ecdcc50460e402af95c267d02e0f0">&#9670;&nbsp;</a></span>ucdm_disable_regw()</h2>
+<a id="afadb3313130bbd61e8469164ebdc960e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afadb3313130bbd61e8469164ebdc960e">&#9670;&nbsp;</a></span>ucdm_disable_regr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_disable_regw </td>
+          <td class="memname">HAL_BASE_t ucdm_disable_regr </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Disable UCDM register write access on register. </p>
-<p>The write type will not be changed by this function.</p>
+<p>Disable UCDM register register access on register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -722,22 +734,69 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00094">94</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00073">73</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00273">UCDM_AT_REGW_TYPE_NORMAL</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_READ_MASK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ucdm_8c_source.html#l00171">ucdm_redirect_regw_func()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h_afadb3313130bbd61e8469164ebdc960e_icgraph.svg" width="394" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="a89c3bc39e2d0cc133ed6805ddf64df2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89c3bc39e2d0cc133ed6805ddf64df2e">&#9670;&nbsp;</a></span>ucdm_enable_bitw()</h2>
+<a id="a2bd2008076de02636acd04189c80e4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd2008076de02636acd04189c80e4ff">&#9670;&nbsp;</a></span>ucdm_disable_regw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_enable_bitw </td>
+          <td class="memname">HAL_BASE_t ucdm_disable_regw </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable UCDM register write access on a register. </p>
+<p>The write type will be reset by this function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00143">143</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00289">UCDM_AT_REGW_TYPE_MASK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ucdm_8c_source.html#l00101">ucdm_redirect_regr_func()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h_a2bd2008076de02636acd04189c80e4ff_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa4686d022db1f804cb88e2a2d6ad7192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4686d022db1f804cb88e2a2d6ad7192">&#9670;&nbsp;</a></span>ucdm_enable_bitw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_BASE_t ucdm_enable_bitw </td>
+          <td>(</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -752,30 +811,29 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00079">79</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00225">225</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_BITW_WE</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00271">UCDM_AT_BITW_WE</a>.</p>
 
 </div>
 </div>
-<a id="ab6df0fd1b0a041fc1db2165d46573f21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6df0fd1b0a041fc1db2165d46573f21">&#9670;&nbsp;</a></span>ucdm_enable_regw()</h2>
+<a id="a1eb2df29b9aba9133b2ef0d2718cf048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb2df29b9aba9133b2ef0d2718cf048">&#9670;&nbsp;</a></span>ucdm_enable_regr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_enable_regw </td>
+          <td class="memname">HAL_BASE_t ucdm_enable_regr </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enable UCDM register write access on register. </p>
-<p>The correct write type should already have been set by this time.</p>
+<p>Enable UCDM register register access on register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -783,14 +841,44 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00089">89</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00082">82</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, and <a class="el" href="ucdm_8h_source.html#l00273">UCDM_AT_REGW_TYPE_NORMAL</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_READ_MASK</a>, and <a class="el" href="ucdm_8h_source.html#l00255">UCDM_AT_READ_NORM</a>.</p>
 
 </div>
 </div>
-<a id="a654e9313cbfbe8e0e05eb14966db9a8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a654e9313cbfbe8e0e05eb14966db9a8a">&#9670;&nbsp;</a></span>ucdm_get_bit()</h2>
+<a id="adc878481316567547dcd14a1859654a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc878481316567547dcd14a1859654a8">&#9670;&nbsp;</a></span>ucdm_enable_regw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_BASE_t ucdm_enable_regw </td>
+          <td>(</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable UCDM register write access on a normal register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00152">152</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00289">UCDM_AT_REGW_TYPE_MASK</a>, and <a class="el" href="ucdm_8h_source.html#l00293">UCDM_AT_REGW_TYPE_NORMAL</a>.</p>
+
+</div>
+</div>
+<a id="a17a8cd2f4803b9468624d3551491b6f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a8cd2f4803b9468624d3551491b6f4">&#9670;&nbsp;</a></span>ucdm_get_bit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -798,7 +886,7 @@ Internal Access</h1>
         <tr>
           <td class="memname">uint8_t ucdm_get_bit </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addrb_t&#160;</td>
           <td class="paramname"><em>addrb</em></td><td>)</td>
           <td></td>
         </tr>
@@ -814,14 +902,12 @@ Internal Access</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Non-zero for bit is set, 0 for bit is cleared, 2 for address invalid </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00270">270</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
-
-<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00035">DMAP_MAXBITS</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00325">325</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
 </div>
 </div>
-<a id="a6abcf9cd3dc3d47d7fe14499f23006d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6abcf9cd3dc3d47d7fe14499f23006d4">&#9670;&nbsp;</a></span>ucdm_get_register()</h2>
+<a id="a114b48e3559aa2ba95a9dcdbbd50a0b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114b48e3559aa2ba95a9dcdbbd50a0b6">&#9670;&nbsp;</a></span>ucdm_get_register()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -829,7 +915,7 @@ Internal Access</h1>
         <tr>
           <td class="memname">uint16_t ucdm_get_register </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -845,22 +931,22 @@ Internal Access</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the register, or 0xFFFF if address is invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00181">181</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00112">112</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a31a97557f9d99c41731cb7d866264d28">DMAP_MAXREGS</a>, <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00237">UCDM_AT_REGR_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00231">UCDM_AT_REGR_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00233">UCDM_AT_REGR_NORM</a>, <a class="el" href="ucdm_8h_source.html#l00235">UCDM_AT_REGR_PTR</a>, <a class="el" href="ucdm_8h_source.html#l00239">UCDM_AT_REGR_RESV</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00259">UCDM_AT_READ_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_READ_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00253">UCDM_AT_READ_NONE</a>, <a class="el" href="ucdm_8h_source.html#l00255">UCDM_AT_READ_NORM</a>, <a class="el" href="ucdm_8h_source.html#l00257">UCDM_AT_READ_PTR</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
 
 </div>
 </div>
-<a id="a67c6071abd50c755c1a8eb6e4b736732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67c6071abd50c755c1a8eb6e4b736732">&#9670;&nbsp;</a></span>ucdm_install_bitw_handler()</h2>
+<a id="ae73a5db58e4790a5a616f087c33e9ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73a5db58e4790a5a616f087c33e9ba8">&#9670;&nbsp;</a></span>ucdm_install_bitw_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_install_bitw_handler </td>
+          <td class="memname">HAL_BASE_t ucdm_install_bitw_handler </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -894,20 +980,20 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00140">140</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00394">394</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
 </div>
 </div>
-<a id="a155c91144a9e041689d1a20c213d2b35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a155c91144a9e041689d1a20c213d2b35">&#9670;&nbsp;</a></span>ucdm_install_regw_handler()</h2>
+<a id="afaa99f79606630b244c8168302e4afa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa99f79606630b244c8168302e4afa0">&#9670;&nbsp;</a></span>ucdm_install_regw_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_install_regw_handler </td>
+          <td class="memname">HAL_BASE_t ucdm_install_regw_handler </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -941,27 +1027,27 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00121">121</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00371">371</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
 </div>
 </div>
-<a id="a92884fef58c14a810b46e679c9d0b806"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92884fef58c14a810b46e679c9d0b806">&#9670;&nbsp;</a></span>ucdm_redirect_regr_func()</h2>
+<a id="a9d111350a23d5fb38c93e67acf1b5451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d111350a23d5fb38c93e67acf1b5451">&#9670;&nbsp;</a></span>ucdm_redirect_regr_func()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_redirect_regr_func </td>
+          <td class="memname">HAL_BASE_t ucdm_redirect_regr_func </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t &#160;</td>
-          <td class="paramname"><em>target</em>uint16_t&#160;</td>
+          <td class="paramname"><em>target</em>ucdm_addr_t&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -972,6 +1058,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 
 <p>Configure UCDM register read access on this register to redirect to a function pointer. </p>
+<p>This disables writes to this register if enabled. Note, however, that applications could enable write to this register after calling this function. While there is no good reason to ever do so, we do nothing to prevent this from happening.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -980,22 +1067,28 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00073">73</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00101">101</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00237">UCDM_AT_REGR_FUNC</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00259">UCDM_AT_READ_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_READ_MASK</a>, <a class="el" href="ucdm_8c_source.html#l00143">ucdm_disable_regw()</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h_a9d111350a23d5fb38c93e67acf1b5451_cgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="a29ada5274fe87e8d928ddf415e93f2ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29ada5274fe87e8d928ddf415e93f2ec">&#9670;&nbsp;</a></span>ucdm_redirect_regr_ptr()</h2>
+<a id="aa872a93a9738e76a33493a3d9c1eddb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa872a93a9738e76a33493a3d9c1eddb1">&#9670;&nbsp;</a></span>ucdm_redirect_regr_ptr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_redirect_regr_ptr </td>
+          <td class="memname">HAL_BASE_t ucdm_redirect_regr_ptr </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -1013,6 +1106,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 
 <p>Configure UCDM register read access on this register to redirect to a pointer. </p>
+<p>Note that in most instances, applications should also call ucdm_redirect_regw_ptr.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -1021,29 +1115,29 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00067">67</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00091">91</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00235">UCDM_AT_REGR_PTR</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00251">UCDM_AT_READ_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00257">UCDM_AT_READ_PTR</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
 
 </div>
 </div>
-<a id="a972356d785214fc5b2c23483f859f205"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a972356d785214fc5b2c23483f859f205">&#9670;&nbsp;</a></span>ucdm_redirect_regw_func()</h2>
+<a id="a30a332a25c4993000e28caca3ef6198b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a332a25c4993000e28caca3ef6198b">&#9670;&nbsp;</a></span>ucdm_redirect_regw_func()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_redirect_regw_func </td>
+          <td class="memname">HAL_BASE_t ucdm_redirect_regw_func </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void &#160;</td>
-          <td class="paramname"><em>target</em>uint16_t, uint16_t&#160;</td>
+          <td class="paramname"><em>target</em>ucdm_addr_t, uint16_t&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1054,7 +1148,8 @@ Internal Access</h1>
 </div><div class="memdoc">
 
 <p>Configure UCDM register write access on this register to redirect to a function pointer. </p>
-<p>Write enable is also set.</p>
+<p>Write enable is also set implicitly.</p>
+<p>This disables reads from this register if enabled. Note, however, that applications could enable read on this register after calling this function. While there is no good reason to ever do so, we do nothing to prevent this from happening. .</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -1063,22 +1158,28 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00105">105</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00171">171</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00277">UCDM_AT_REGW_TYPE_FUNC</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00297">UCDM_AT_REGW_TYPE_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00289">UCDM_AT_REGW_TYPE_MASK</a>, <a class="el" href="ucdm_8c_source.html#l00073">ucdm_disable_regr()</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="ucdm_8h_a30a332a25c4993000e28caca3ef6198b_cgraph.svg" width="394" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="aa6e43332a647807b509ae0a690ef9d3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e43332a647807b509ae0a690ef9d3a">&#9670;&nbsp;</a></span>ucdm_redirect_regw_ptr()</h2>
+<a id="a698bc2d34a288d43c570f87f5ac3d461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698bc2d34a288d43c570f87f5ac3d461">&#9670;&nbsp;</a></span>ucdm_redirect_regw_ptr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ucdm_redirect_regw_ptr </td>
+          <td class="memname">HAL_BASE_t ucdm_redirect_regw_ptr </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -1096,7 +1197,7 @@ Internal Access</h1>
 </div><div class="memdoc">
 
 <p>Configure UCDM register write access on this register to redirect to a pointer. </p>
-<p>Write enable is also set.</p>
+<p>Write enable is also set implicitly. Note that in most instances, applications should also call ucdm_redirect_regr_ptr.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address/identifier of the register. </td></tr>
@@ -1105,22 +1206,22 @@ Internal Access</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00099">99</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00161">161</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00275">UCDM_AT_REGW_TYPE_PTR</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00289">UCDM_AT_REGW_TYPE_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00295">UCDM_AT_REGW_TYPE_PTR</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
 
 </div>
 </div>
-<a id="aa05ba9eb6e924ad628781fd8c98b8d42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa05ba9eb6e924ad628781fd8c98b8d42">&#9670;&nbsp;</a></span>ucdm_set_bit()</h2>
+<a id="a6c67499b748795e01bdffb17d7ceb995"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c67499b748795e01bdffb17d7ceb995">&#9670;&nbsp;</a></span>ucdm_set_bit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t ucdm_set_bit </td>
+          <td class="memname">HAL_BASE_t ucdm_set_bit </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addrb_t&#160;</td>
           <td class="paramname"><em>addrb</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1136,20 +1237,20 @@ Internal Access</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 for bit set, 0 for access error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00222">222</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00317">317</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
 </div>
 </div>
-<a id="a9f6941401481233fce87290d2d08eaca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f6941401481233fce87290d2d08eaca">&#9670;&nbsp;</a></span>ucdm_set_register()</h2>
+<a id="a112d896fadf03daa791c5cfb85035cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112d896fadf03daa791c5cfb85035cb2">&#9670;&nbsp;</a></span>ucdm_set_register()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t ucdm_set_register </td>
+          <td class="memname">HAL_BASE_t ucdm_set_register </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">ucdm_addr_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -1176,9 +1277,9 @@ Internal Access</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 for register set, 1 for register out of range, 2 for access error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00151">151</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ucdm_8c_source.html#l00183">183</a> of file <a class="el" href="ucdm_8c_source.html">ucdm.c</a>.</p>
 
-<p class="reference">References <a class="el" href="ucdm_8h.html#a31a97557f9d99c41731cb7d866264d28">DMAP_MAXREGS</a>, <a class="el" href="ucdm_8h.html#a5da5bda1d1c77ad7a9bb50b30039c5cf">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00265">UCDM_AT_REGW_HF</a>, <a class="el" href="ucdm_8h_source.html#l00277">UCDM_AT_REGW_TYPE_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00269">UCDM_AT_REGW_TYPE_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00273">UCDM_AT_REGW_TYPE_NORMAL</a>, <a class="el" href="ucdm_8h_source.html#l00275">UCDM_AT_REGW_TYPE_PTR</a>, <a class="el" href="ucdm_8h_source.html#l00271">UCDM_AT_REGW_TYPE_RO</a>, and <a class="el" href="ucdm_8h.html#a18d9dfe7e9dc27311a189e008cecfb7f">ucdm_register</a>.</p>
+<p class="reference">References <a class="el" href="ucdm_8c_source.html#l00044">ucdm_acctype</a>, <a class="el" href="ucdm_8h_source.html#l00285">UCDM_AT_REGW_HF</a>, <a class="el" href="ucdm_8h_source.html#l00297">UCDM_AT_REGW_TYPE_FUNC</a>, <a class="el" href="ucdm_8h_source.html#l00289">UCDM_AT_REGW_TYPE_MASK</a>, <a class="el" href="ucdm_8h_source.html#l00293">UCDM_AT_REGW_TYPE_NORMAL</a>, <a class="el" href="ucdm_8h_source.html#l00295">UCDM_AT_REGW_TYPE_PTR</a>, <a class="el" href="ucdm_8h_source.html#l00291">UCDM_AT_REGW_TYPE_RO</a>, and <a class="el" href="ucdm_8c_source.html#l00043">ucdm_register</a>.</p>
 
 </div>
 </div>
@@ -1188,7 +1289,7 @@ Internal Access</h1>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_18592c98b8f607108220319759108e17.html">ucdm</a></li><li class="navelem"><a class="el" href="ucdm_8h.html">ucdm.h</a></li>
-    <li class="footer">Generated on Thu Sep 5 2024 09:28:54 for ebs-ucdm by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 8 2024 10:26:59 for ebs-ucdm by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

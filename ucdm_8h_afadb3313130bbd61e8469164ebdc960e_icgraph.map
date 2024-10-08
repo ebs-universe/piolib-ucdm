@@ -1,0 +1,4 @@
+<map id="ucdm_disable_regr" name="ucdm_disable_regr">
+<area shape="rect" id="node1" title="Disable UCDM register register access on register." alt="" coords="243,5,388,32"/>
+<area shape="rect" id="node2" href="$ucdm_8c.html#a30a332a25c4993000e28caca3ef6198b" title="Configure UCDM register write access on this register to redirect to a function pointer." alt="" coords="5,5,195,32"/>
+</map>

@@ -20,4 +20,8 @@ digraph "ucdm/descriptor.c"
   Node7 [label="ds/avltree.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node8 [label="stdint.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="config.h",height=0.2,width=0.4,color="black",URL="$config_8h_source.html",tooltip=" "];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="application.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }
