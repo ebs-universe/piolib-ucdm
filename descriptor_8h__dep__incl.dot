@@ -8,4 +8,6 @@ digraph "ucdm/descriptor.h"
   Node1 [label="ucdm/descriptor.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Descriptor type definitions."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="ucdm/descriptor.c",height=0.2,width=0.4,color="black",URL="$descriptor_8c.html",tooltip="Descriptor type definitions."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ucdm/ucdm.c",height=0.2,width=0.4,color="black",URL="$ucdm_8c.html",tooltip="Implementation the Unified Configuration and Data Manager."];
 }

@@ -20,4 +20,7 @@ digraph "ucdm/ucdm.c"
   Node7 [label="config.h",height=0.2,width=0.4,color="black",URL="$config_8h_source.html",tooltip=" "];
   Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node8 [label="application.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="descriptor.h",height=0.2,width=0.4,color="black",URL="$descriptor_8h.html",tooltip="Descriptor type definitions."];
+  Node9 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

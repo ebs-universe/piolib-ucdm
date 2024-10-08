@@ -28,7 +28,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ebs-ucdm
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
    <div id="projectbrief">Simple Unified Configuration and Data Manager (UCDM) library for embedded systems</div>
   </td>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('descriptor_8h_source.html',''); initRe
 <div class="contents">
 <a href="descriptor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* </span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">   Copyright (c)</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">     (c) 2018 Chintalagiri Shashank, Quazar Technologies Pvt. Ltd.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">     (c) 2018 Chintalagiri Shashank</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">   </span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">   This file is part of</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">   Embedded bootstraps : ucdm library</span></div>
@@ -110,79 +110,81 @@ $(document).ready(function(){initNavTree('descriptor_8h_source.html',''); initRe
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">   along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;. </span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef UCDM_DESCRIPTOR_H</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define UCDM_DESCRIPTOR_H</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ucdm_8h.html">ucdm.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">   34</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">DESCRIPTOR_VENDOR_t</a>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> url;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">descriptor_vendor_t</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifndef UCDM_DESCRIPTOR_H</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define UCDM_DESCRIPTOR_H</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ucdm_8h.html">ucdm.h</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">DESCRIPTOR_HARDWARE_t</a>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;       </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> variant;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> revision;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">descriptor_hardware_t</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#if UCDM_ENABLE_DESCRIPTORS</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">DESCRIPTOR_VENDOR_t</a>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> url;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">descriptor_vendor_t</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">   47</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">DESCRIPTOR_FIRMWARE_t</a>{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> revision;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">descriptor_firmware_t</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">descriptor_vendor_t</a> descriptor_vendor;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">descriptor_hardware_t</a> descriptor_hardware;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">descriptor_firmware_t</a> descriptor_firmware;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define DESCRIPTOR_ACCTYPE_PTR      0x01</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#define DESCRIPTOR_ACCTYPE_RFUNC    0x02</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">   48</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">DESCRIPTOR_HARDWARE_t</a>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;       </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> variant;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> revision;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">descriptor_hardware_t</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">   55</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">DESCRIPTOR_FIRMWARE_t</a>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> name;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> revision;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">descriptor_firmware_t</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#define DESCRIPTOR_TAG_SERIALNO     0x00</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#define DESCRIPTOR_TAG_LIBVERSION   0x01</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">descriptor_vendor_t</a> descriptor_vendor;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">descriptor_hardware_t</a> descriptor_hardware;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">descriptor_firmware_t</a> descriptor_firmware;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">   65</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union </span><a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">DESCRIPTOR_PTR_t</a>{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> * <span class="keyword">const</span> ptr;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    uint8_t (*<span class="keyword">const</span> rfunc)(uint8_t, <span class="keywordtype">void</span> * );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}<a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">descriptor_ptr_t</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">   71</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a> * next;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> uint8_t tag;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> uint8_t length;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> uint8_t acctype;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">descriptor_ptr_t</a> value;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#define DESCRIPTOR_ACCTYPE_PTR      0x01</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#define DESCRIPTOR_ACCTYPE_RFUNC    0x02</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#define DESCRIPTOR_TAG_SERIALNO     0x00</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#define DESCRIPTOR_TAG_LIBVERSION   0x01</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">   73</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union </span><a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">DESCRIPTOR_PTR_t</a>{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> * <span class="keyword">const</span> ptr;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    uint8_t (*<span class="keyword">const</span> rfunc)(uint8_t, <span class="keywordtype">void</span> * );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}<a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">descriptor_ptr_t</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">extern</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * descriptor_custom_root;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> descriptor_install(<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * dptr);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * descriptor_find(uint8_t tag);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;uint8_t descriptor_read(<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * dptr, <span class="keywordtype">void</span> * target);</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">   79</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a> * next;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> uint8_t tag;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">const</span> uint8_t length;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> uint8_t acctype;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">descriptor_ptr_t</a> value;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00071">descriptor.h:71</a></div></div>
-<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">DESCRIPTOR_FIRMWARE_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00047">descriptor.h:47</a></div></div>
-<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">DESCRIPTOR_HARDWARE_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00040">descriptor.h:40</a></div></div>
-<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">DESCRIPTOR_VENDOR_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00034">descriptor.h:34</a></div></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">extern</span> <a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * descriptor_custom_root;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> descriptor_install(<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * dptr);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * descriptor_find(uint8_t tag);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;uint8_t descriptor_read(<a class="code" href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">descriptor_custom_t</a> * dptr, <span class="keywordtype">void</span> * target);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___c_u_s_t_o_m__t.html">DESCRIPTOR_CUSTOM_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00079">descriptor.h:79</a></div></div>
+<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___f_i_r_m_w_a_r_e__t.html">DESCRIPTOR_FIRMWARE_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00055">descriptor.h:55</a></div></div>
+<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___h_a_r_d_w_a_r_e__t.html">DESCRIPTOR_HARDWARE_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00048">descriptor.h:48</a></div></div>
+<div class="ttc" id="astruct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t_html"><div class="ttname"><a href="struct_d_e_s_c_r_i_p_t_o_r___v_e_n_d_o_r__t.html">DESCRIPTOR_VENDOR_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00042">descriptor.h:42</a></div></div>
 <div class="ttc" id="aucdm_8h_html"><div class="ttname"><a href="ucdm_8h.html">ucdm.h</a></div><div class="ttdoc">Interface and usage of the Unified Configuration and Data Manager.</div></div>
-<div class="ttc" id="aunion_d_e_s_c_r_i_p_t_o_r___p_t_r__t_html"><div class="ttname"><a href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">DESCRIPTOR_PTR_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00065">descriptor.h:65</a></div></div>
+<div class="ttc" id="aunion_d_e_s_c_r_i_p_t_o_r___p_t_r__t_html"><div class="ttname"><a href="union_d_e_s_c_r_i_p_t_o_r___p_t_r__t.html">DESCRIPTOR_PTR_t</a></div><div class="ttdef"><b>Definition:</b> <a href="descriptor_8h_source.html#l00073">descriptor.h:73</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_18592c98b8f607108220319759108e17.html">ucdm</a></li><li class="navelem"><a class="el" href="descriptor_8h.html">descriptor.h</a></li>
-    <li class="footer">Generated on Tue Oct 8 2024 13:22:56 for ebs-ucdm by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 8 2024 14:10:32 for ebs-ucdm by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,6 +1,6 @@
 <map id="ucdm/ucdm.h" name="ucdm/ucdm.h">
-<area shape="rect" id="node1" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="93,5,203,32"/>
-<area shape="rect" id="node2" href="$descriptor_8h.html" title="Descriptor type definitions." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node4" href="$ucdm_8c.html" title="Implementation the Unified Configuration and Data Manager." alt="" coords="168,80,277,107"/>
-<area shape="rect" id="node3" href="$descriptor_8c.html" title="Descriptor type definitions." alt="" coords="6,155,143,181"/>
+<area shape="rect" id="node1" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="113,5,224,32"/>
+<area shape="rect" id="node2" href="$descriptor_8h.html" title="Descriptor type definitions." alt="" coords="46,80,185,107"/>
+<area shape="rect" id="node4" href="$ucdm_8c.html" title="Implementation the Unified Configuration and Data Manager." alt="" coords="167,155,277,181"/>
+<area shape="rect" id="node3" href="$descriptor_8c.html" title="Descriptor type definitions." alt="" coords="5,155,143,181"/>
 </map>

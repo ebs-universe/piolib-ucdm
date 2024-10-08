@@ -1,4 +1,5 @@
 <map id="ucdm/descriptor.h" name="ucdm/descriptor.h">
-<area shape="rect" id="node1" title="Descriptor type definitions." alt="" coords="5,5,144,32"/>
-<area shape="rect" id="node2" href="$descriptor_8c.html" title="Descriptor type definitions." alt="" coords="6,80,143,107"/>
+<area shape="rect" id="node1" title="Descriptor type definitions." alt="" coords="78,5,217,32"/>
+<area shape="rect" id="node2" href="$descriptor_8c.html" title="Descriptor type definitions." alt="" coords="5,80,143,107"/>
+<area shape="rect" id="node3" href="$ucdm_8c.html" title="Implementation the Unified Configuration and Data Manager." alt="" coords="167,80,277,107"/>
 </map>

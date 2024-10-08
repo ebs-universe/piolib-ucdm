@@ -1,10 +1,11 @@
 <map id="ucdm/ucdm.c" name="ucdm/ucdm.c">
-<area shape="rect" id="node1" title="Implementation the Unified Configuration and Data Manager." alt="" coords="161,5,271,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="134,80,205,107"/>
-<area shape="rect" id="node3" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="229,80,299,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,155,136,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="160,155,259,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="283,155,354,181"/>
-<area shape="rect" id="node7" href="$config_8h_source.html" title=" " alt="" coords="378,155,451,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="361,229,468,256"/>
+<area shape="rect" id="node1" title="Implementation the Unified Configuration and Data Manager." alt="" coords="167,5,276,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="113,80,183,107"/>
+<area shape="rect" id="node3" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="229,155,299,181"/>
+<area shape="rect" id="node9" href="$descriptor_8h.html" title="Descriptor type definitions." alt="" coords="259,80,357,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,229,136,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="160,229,259,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="283,229,354,256"/>
+<area shape="rect" id="node7" href="$config_8h_source.html" title=" " alt="" coords="378,229,451,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="361,304,468,331"/>
 </map>
