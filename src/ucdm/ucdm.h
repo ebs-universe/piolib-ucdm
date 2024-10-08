@@ -41,10 +41,19 @@
  * 
  * Each register can be configured to set allowed access type to one or more
  * of the following : 
- * - Read-Only Register (always allowed)            (modbus: Input Registers)
- * - Read-Write Register (optional)                 (modbus: Holding Registers)
- * - 16 Read-Only Discrete Bits (always allowed)    (modbus: Input Discrete)
- * - 16 Read-Write Discrete Bits (optional)         (modbus: Coils)
+ * - Read-Only Register                             (modbus: Input Registers)
+ * - Read-Write Register                            (modbus: Holding Registers)
+ * - 16 Read-Only Discrete Bits                     (modbus: Input Discrete)
+ * - 16 Read-Write Discrete Bits                    (modbus: Coils)
+ * 
+ * Redirection
+ * -----------
+ * 
+ * Though the UCDM library itself maintains storage, it is generally recommended
+ * to avoid using UCDM registers for storage and instead opting for one of the 
+ * redirection methods. Redirection is configured through the register's access 
+ * type configuration (ucdm_acctype). The following sections discuss the various 
+ * available options. 
  * 
  * Bit-level Access
  * ----------------
@@ -52,11 +61,15 @@
  * Only basic support of bit read / write is implemented. Bit level access 
  * functions will only operate on normal UCDM registers, ie, registers which
  * are stored directly in UCDM register storage. Specifically :
- *  - Bit read is always allowed, but is useful only for bits in normal UCDM
- *    registers.
+ *  - Bit read is allowed for all registers where read is allowed. However, 
+ *    it may not be appropriate for bits in UCDM registers with redirections 
+ *    in place. Bit reads for pointers will read the full register and return 
+ *    only the requested bit.  
  *  - Bit write must be enabled if it is to be used, per register. Bit write
- *    should only be used on normal UCDM registers. Enabling it on registers 
- *    with other write types will cause all manner of undesireable behavior.
+ *    should only be used on normal or pointer UCDM registers. 
+ * 
+ * Bit reads and writes are not supported on registered configured for 
+ * redirection using functions. 
  *  
  * @see UCDM Access Type Definitions for Bit Write
  *
@@ -92,8 +105,7 @@
  *  - Function Pointer register write, where content of the UCDM storage is 
  *    treated as a pointer to a function which must be called with the data 
  *    to be written (equal in size to the register) and the register address.
- *    Such registers MUST be write only registers. Read will be allowed, but 
- *    unusable. 
+ *    Such registers MUST be write only registers.
  * 
  * @see UCDM Access Type Definitions for Register Write
  * 
@@ -104,9 +116,9 @@
  * handler functions after successful write. These handler functions must be set 
  * per-register, and will be called once per call to ucdm_set_register or 
  * ucdm_set_bit. In the case of register write, all types of writes can trigger 
- * the post-write handler function. Bit-write itself is not allowed for all 
- * registers other than normal ones, and post bit-write handlers are not 
- * applicable for registers with other write types. 
+ * the post-write handler function. Bit-write itself is not allowed for registers
+ * of the function write type, and post bit-write handlers are not applicable 
+ * for such registers. 
  * 
  * In general, bit write handlers are only called in response to a successful 
  * bit write operation. Register write handlers are called in response to a 
@@ -123,14 +135,11 @@
  * Configuring the appropriate access type definitions should be done by the
  * application code using the provided functions in this library's API. This
  * configuration is expected to occur during initialization, and not during 
- * normal operation. These functions should therefore not be expected to be 
- * well optimized.
+ * normal operation. 
  * 
  * Register access type definitions provided can be used to configure the 
- * appropriate access types as needed, but should be avoided. If you do end
- * up trying to use the included definitions for some reason, though, do so 
- * with care. The provided definitions are readily usable only if the register
- * in question was previously unconfigured. 
+ * appropriate access types as needed, but should be avoided in favor of the 
+ * configuration functions.  
  * 
  * Note that in most cases, it will be necessary to set both the read and write 
  * operations on registers to the same type. This must be done by application 
@@ -142,7 +151,9 @@
  * When using post-write handlers, remember that the application code using this
  * handler must also provide the necessary data structures to contain and maintain
  * the handler. The functions provided in this libary's API can help you do this, 
- * but they will not be called automatically here.
+ * but they will not be called automatically here. Post-write handlers can also 
+ * be pretty expensive, so it is preferable to resort to them only when redirection
+ * is insufficient. 
  * 
  * Utilizing Function Pointers
  * ===========================
@@ -152,7 +163,9 @@
  * called from within the UCDM context. This means that the call stack is 
  * already pretty deep at this point. Further, communication protocols mounted 
  * atop the UCDM which are time-sensitive may not be able to wait for long 
- * running function calls to complete before sending a response. 
+ * running function calls to complete before sending a response. Keep these 
+ * functions short and avoid deep calls. When necessary, just set a global 
+ * flag and deal with it in the main loop. 
  * 
  * The Device Map
  * ==============
@@ -172,8 +185,16 @@
  * via the UCDM, the functions provided by this library ensure the access is 
  * done correctly. 
  * 
- * @WARNING This approach will break down on platforms where pointer sizes are 
- *          not 16 bit. A means to overcome that problem is necessary.
+ * Casting to larger types
+ * =======================
+ * 
+ * Users should not use UCDM internal storage with void pointers to simulate 
+ * stores for larger types. This library does not guarantee that adjacent 
+ * registers will be contiguous in memory. Specifically, on platforms where 
+ * pointer sizes are larger than 16 bit, the actual data storage will become 
+ * discontinuous. To overcome this problem, applications using UCDM to provide 
+ * access to variables larger than 16-bit should use the pointer redirection 
+ * functionality.
  * 
  * @see ucdm.c
  */
@@ -184,59 +205,58 @@
 #include <platform/types.h>
 #include <ds/avltree.h>
 #include <stdint.h>
+#include "config.h"
 
 #define UCDM_EXST_KEEPALIVE_REQ         0x01
 #define UCDM_EXST_TIMESYNC_REQ          0x02
 
-extern uint16_t ucdm_diagnostic_register;
-extern uint8_t  ucdm_exception_status;
+typedef UCDM_REG_ADDR_TYPE ucdm_addr_t;
+typedef UCDM_BIT_ADDR_TYPE ucdm_addrb_t;
 
-typedef void (*ucdm_rw_handler_t)(uint16_t);
-typedef void (*ucdm_bw_handler_t)(uint16_t, uint16_t);
+typedef void (*ucdm_rw_handler_t)(ucdm_addr_t);
+typedef void (*ucdm_bw_handler_t)(ucdm_addr_t, uint16_t);
+
+typedef uint8_t ucdm_acctype_t;
 
 typedef union UCDM_REGISTER_t{
     uint16_t data;
     uint16_t * ptr;
-    uint16_t (*rfunc)(uint16_t);
-    void (*wfunc)(uint16_t, uint16_t);
-}ucdm_register_t;
+    uint16_t (*rfunc)(ucdm_addr_t);
+    void (*wfunc)(ucdm_addr_t, uint16_t);
+} ucdm_register_t;
 
 /**
  * @name UCDM Configuration and Storage Containers
  * 
- * Most of the containers defined here should be defined in the application
- * layer as per the requirements of the application. 
- * 
  */
 /**@{*/ 
-/** \brief Number of UCDM registers supported. */
-extern uint8_t DMAP_MAXREGS;
 
 /** \brief Actual storage for UCDM registers. */
 extern ucdm_register_t ucdm_register[];
 
 /** \brief Actual storage for UCDM access type settings. */
-extern uint8_t ucdm_acctype[];
+extern ucdm_acctype_t ucdm_acctype[];
 
-/** \brief Number of UCDM bits supported. 
-  * Defined and caluated as DMAP_MAXREGS * 16 in `ucdm.c` */
-extern uint16_t DMAP_MAXBITS;
+extern uint16_t ucdm_diagnostic_register;
+
+extern  uint8_t ucdm_exception_status;
+
 /**@}*/ 
 
 /**
- * @name UCDM Access Type Definitions for Register Read
+ * @name UCDM Access Type Definitions for Register and Bit Read
  */
 /**@{*/ 
 /** Mask for UCDM Access Type, Register Read */
-#define UCDM_AT_REGR_MASK           0x03
+#define UCDM_AT_READ_MASK           0x03
+/** Register Read, Not Allowed */
+#define UCDM_AT_READ_NONE           0x00
 /** Register Read, Normal (from ucdm storage) */
-#define UCDM_AT_REGR_NORM           0x00
+#define UCDM_AT_READ_NORM           0x01
 /** Register Read, Pointer (ptr in ucdm storage) */
-#define UCDM_AT_REGR_PTR            0x01
+#define UCDM_AT_READ_PTR            0x02
 /** Register Read, Function (function ptr in ucdm storage) */
-#define UCDM_AT_REGR_FUNC           0x02
-/** Register Read, Unused Type */
-#define UCDM_AT_REGR_RESV           0x03
+#define UCDM_AT_READ_FUNC           0x03
 /**@}*/ 
 
 /**
@@ -268,13 +288,13 @@ extern uint16_t DMAP_MAXBITS;
 /** Mask for UCDM Access Type, Register Write Type */
 #define UCDM_AT_REGW_TYPE_MASK      0x30
 /** Register Write, Not Allowed */
-#define UCDM_AT_REGW_TYPE_RO        0x00    // 0, 00
+#define UCDM_AT_REGW_TYPE_RO        0x00    // 00
 /** Register Write, Write Enabled, Normal (to ucdm storage) */
-#define UCDM_AT_REGW_TYPE_NORMAL    0x10    // 1, 00
+#define UCDM_AT_REGW_TYPE_NORMAL    0x10    // 01
 /** Register Write, Write Enabled, Pointer (ptr in ucdm storage) */
-#define UCDM_AT_REGW_TYPE_PTR       0x20    // 1, 01
+#define UCDM_AT_REGW_TYPE_PTR       0x20    // 10
 /** Register Write, Write Enabled, Function (function ptr in ucdm storage) */
-#define UCDM_AT_REGW_TYPE_FUNC      0x30    // 1, 10
+#define UCDM_AT_REGW_TYPE_FUNC      0x30    // 11
 /**@}*/ 
 
 /**
@@ -285,7 +305,7 @@ extern uint16_t DMAP_MAXBITS;
 /** 
   * \brief Intitialize the UCDM subsystem.
   */
-extern void ucdm_init(void);
+void ucdm_init(void);
 /**@}*/
 
 /**
@@ -294,20 +314,40 @@ extern void ucdm_init(void);
 /**@{*/
 
 /** 
+ * \brief Disable UCDM register register access on register. 
+ *
+ * @param addr Address/identifier of the register.
+ */
+HAL_BASE_t ucdm_disable_regr(ucdm_addr_t addr);
+
+/** 
+ * \brief Enable UCDM register register access on register. 
+ *
+ * @param addr Address/identifier of the register.
+ */
+HAL_BASE_t ucdm_enable_regr(ucdm_addr_t addr);
+
+/** 
  * \brief Configure UCDM register read access on this register to redirect to a pointer. 
  *
+ * Note that in most instances, applications should also call ucdm_redirect_regw_ptr.
+ * 
  * @param addr Address/identifier of the register.
  * @param target Pointer to the address where the reads should be redirected to.
  */
-void ucdm_redirect_regr_ptr(uint16_t addr, uint16_t * target);
+HAL_BASE_t ucdm_redirect_regr_ptr(ucdm_addr_t addr, uint16_t * target);
 
 /** 
  * \brief Configure UCDM register read access on this register to redirect to a function pointer. 
  * 
+ * This disables writes to this register if enabled. Note, however, that applications 
+ * could enable write to this register after calling this function. While there is no 
+ * good reason to ever do so, we do nothing to prevent this from happening. 
+ * 
  * @param addr Address/identifier of the register.
  * @param target Pointer to the funcition where the reads should be redirected to.
  */
-void ucdm_redirect_regr_func(uint16_t addr, uint16_t target(uint16_t));
+HAL_BASE_t ucdm_redirect_regr_func(ucdm_addr_t addr, uint16_t target(ucdm_addr_t));
 
 /**@}*/ 
 
@@ -320,14 +360,14 @@ void ucdm_redirect_regr_func(uint16_t addr, uint16_t target(uint16_t));
  * 
  * @param addr Address/identifier of the register.
  */
-void ucdm_enable_bitw(uint16_t addr);
+HAL_BASE_t ucdm_enable_bitw(ucdm_addr_t addr);
 
 /** 
  * \brief Disable UCDM bit write access on register.
  * 
  * @param addr Address/identifier of the register.
  */
-void ucdm_disable_bitw(uint16_t addr);
+HAL_BASE_t ucdm_disable_bitw(ucdm_addr_t addr);
 
 /**@}*/ 
 
@@ -335,43 +375,47 @@ void ucdm_disable_bitw(uint16_t addr);
  * @name UCDM Register Configuration Functions for Register Write
  */
 /**@{*/ 
-/** 
- * \brief Enable UCDM register write access on register. 
- * 
- * The correct write type should already have been set by this time. 
- * 
- * @param addr Address/identifier of the register.
- */
-void ucdm_enable_regw(uint16_t addr);
 
 /** 
- * \brief Disable UCDM register write access on register. 
+ * \brief Disable UCDM register write access on a register. 
  * 
- * The write type will not be changed by this function. 
+ * The write type will be reset by this function. 
  * 
  * @param addr Address/identifier of the register.
  */
-void ucdm_disable_regw(uint16_t addr);
+HAL_BASE_t ucdm_disable_regw(ucdm_addr_t addr);
+
+/** 
+ * \brief Enable UCDM register write access on a normal register. 
+ * 
+ * @param addr Address/identifier of the register.
+ */
+HAL_BASE_t ucdm_enable_regw(ucdm_addr_t addr);
 
 /** 
  * \brief Configure UCDM register write access on this register to redirect to a pointer. 
  * 
- * Write enable is also set.
+ * Write enable is also set implicitly. 
+ * Note that in most instances, applications should also call ucdm_redirect_regr_ptr.
  *
  * @param addr Address/identifier of the register.
  * @param target Pointer to the address where the writes should be redirected to.
  */
-void ucdm_redirect_regw_ptr(uint16_t addr, uint16_t * target);
+HAL_BASE_t ucdm_redirect_regw_ptr(ucdm_addr_t addr, uint16_t * target);
 
 /** 
  * \brief Configure UCDM register write access on this register to redirect to a function pointer. 
  * 
- * Write enable is also set.
+ * Write enable is also set implicitly. 
+ * 
+ * This disables reads from this register if enabled. Note, however, that applications 
+ * could enable read on this register after calling this function. While there is no good 
+ * reason to ever do so, we do nothing to prevent this from happening. .
  * 
  * @param addr Address/identifier of the register.
  * @param target Pointer to the funcition where the writes should be redirected to.
  */
-void ucdm_redirect_regw_func(uint16_t addr, void target(uint16_t, uint16_t));
+HAL_BASE_t ucdm_redirect_regw_func(ucdm_addr_t addr, void target(ucdm_addr_t, uint16_t));
 
 /**@}*/ 
 
@@ -389,7 +433,7 @@ void ucdm_redirect_regw_func(uint16_t addr, void target(uint16_t, uint16_t));
  *                 and provided by the application.
  * @param handler Pointer to the handler function.
  */
-void ucdm_install_regw_handler(uint16_t addr, 
+HAL_BASE_t ucdm_install_regw_handler(ucdm_addr_t addr, 
                                avlt_node_t * rwh_node, 
                                ucdm_rw_handler_t handler);
 
@@ -403,7 +447,7 @@ void ucdm_install_regw_handler(uint16_t addr,
  *                 and provided by the application.
  * @param handler Pointer to the handler function.
  */
-void ucdm_install_bitw_handler(uint16_t addr, 
+HAL_BASE_t ucdm_install_bitw_handler(ucdm_addr_t addr, 
                                avlt_node_t * bwh_node, 
                                ucdm_bw_handler_t handler);
 /**@}*/ 
@@ -419,7 +463,7 @@ void ucdm_install_bitw_handler(uint16_t addr,
   * @param value The value to be set
   * @return 0 for register set, 1 for register out of range, 2 for access error.
   */
-uint8_t ucdm_set_register(uint16_t addr, uint16_t value);
+HAL_BASE_t ucdm_set_register(ucdm_addr_t addr, uint16_t value);
 
 /** 
   * \brief Get the value of a UCDM register from protocol.
@@ -427,7 +471,7 @@ uint8_t ucdm_set_register(uint16_t addr, uint16_t value);
   * @param addr Address/identifier of the register
   * @return Value of the register, or 0xFFFF if address is invalid.
   */
-uint16_t ucdm_get_register(uint16_t addr);
+uint16_t ucdm_get_register(ucdm_addr_t addr);
 /**@}*/ 
 
 
@@ -442,10 +486,10 @@ uint16_t ucdm_get_register(uint16_t addr);
   * @param addr Pointer to where the register address should be stored
   * @param mask Pointer to where the bitmask should be stored
   */
-static inline void ucdm_get_bit_addr(uint16_t addrb, uint16_t * addr, uint16_t * mask);
+static inline void ucdm_get_bit_addr(ucdm_addrb_t addrb, ucdm_addr_t * addr, uint16_t * mask);
 
-static inline void ucdm_get_bit_addr(uint16_t addrb, 
-                                     uint16_t * addrp, 
+static inline void ucdm_get_bit_addr(ucdm_addrb_t addrb, 
+                                     ucdm_addr_t * addrp, 
                                      uint16_t * maskp){
     *addrp = addrb >> 4;
     *maskp = (1 << (addrb & 15));
@@ -457,7 +501,7 @@ static inline void ucdm_get_bit_addr(uint16_t addrb,
   * @param addrb Address/identifier of the bit
   * @return 1 for bit set, 0 for access error.
   */
-uint8_t ucdm_set_bit(uint16_t addrb);
+HAL_BASE_t ucdm_set_bit(ucdm_addrb_t addrb);
 
 /** 
   * \brief Clear a UCDM bit from protocol.
@@ -465,7 +509,7 @@ uint8_t ucdm_set_bit(uint16_t addrb);
   * @param addrb Address/identifier of the bit.
   * @return 1 for bit cleared, 0 for access error.
   */
-uint8_t ucdm_clear_bit(uint16_t addrb);
+HAL_BASE_t ucdm_clear_bit(ucdm_addrb_t addrb);
 
 /** 
   * \brief Get the value of a UCDM bit from protocol.
@@ -473,7 +517,7 @@ uint8_t ucdm_clear_bit(uint16_t addrb);
   * @param addrb Address/identifier of the bit
   * @return Non-zero for bit is set, 0 for bit is cleared, 2 for address invalid
   */
-uint8_t ucdm_get_bit(uint16_t addrb);
+uint8_t ucdm_get_bit(ucdm_addrb_t addrb);
 /**@}*/ 
 
 #endif

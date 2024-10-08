@@ -32,124 +32,156 @@
 #include <string.h>
 #include "ucdm.h"
 
-uint16_t DMAP_MAXBITS;
 uint16_t ucdm_diagnostic_register;
 uint8_t  ucdm_exception_status;
-avlt_t ucdm_rwht;
-avlt_t ucdm_bwht;
 
+#if UCDM_ENABLE_HANDLERS
+avlt_t   ucdm_rwht;
+avlt_t   ucdm_bwht;
+#endif
+
+ucdm_register_t ucdm_register[UCDM_MAX_REGISTERS];
+ucdm_acctype_t  ucdm_acctype[UCDM_MAX_REGISTERS];
 
 static inline void _ucdm_registers_init(void);
 static inline void _ucdm_acctype_init(void);
 static inline void _ucdm_handlers_init(void);
 
 static inline void _ucdm_registers_init(void){
-    memset(&ucdm_register, 0, sizeof(ucdm_register_t) * DMAP_MAXREGS);
+    memset(&ucdm_register, 0, sizeof(ucdm_register_t) * UCDM_MAX_REGISTERS);
 }
 
 static inline void _ucdm_acctype_init(void){
-    memset(&ucdm_acctype, 0, sizeof(uint8_t) * DMAP_MAXREGS);
+    memset(&ucdm_acctype, 0, sizeof(uint8_t) * UCDM_MAX_REGISTERS);
 }
 
 static inline void _ucdm_handlers_init(void){
+    #if UCDM_ENABLE_HANDLERS
     ucdm_bwht.root = NULL;
     ucdm_rwht.root = NULL;
+    #endif
 }
 
 void ucdm_init(void){
-    DMAP_MAXBITS = DMAP_MAXREGS * 16;
+    // this probably isn't actually needed. 
     _ucdm_registers_init();
     _ucdm_acctype_init();
     _ucdm_handlers_init();
     return;
 }
 
-void ucdm_redirect_regr_ptr(uint16_t addr, uint16_t * target){
-    ucdm_acctype[addr] |= UCDM_AT_REGR_PTR;
-    ucdm_register[addr].ptr = target;
-    return;
+HAL_BASE_t ucdm_disable_regr(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] &= ~UCDM_AT_READ_MASK;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_redirect_regr_func(uint16_t addr, uint16_t target(uint16_t)){
-    ucdm_acctype[addr] |= UCDM_AT_REGR_FUNC;
-    ucdm_register[addr].rfunc = target;
-    return;
+HAL_BASE_t ucdm_enable_regr(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_READ_MASK) | UCDM_AT_READ_NORM;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_enable_bitw(uint16_t addr){
-    ucdm_acctype[addr] |= UCDM_AT_BITW_WE;
-    return;
+HAL_BASE_t ucdm_redirect_regr_ptr(ucdm_addr_t addr, uint16_t * target){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_READ_MASK) | UCDM_AT_READ_PTR;
+        ucdm_register[addr].ptr = target;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_disable_bitw(uint16_t addr){
-    ucdm_acctype[addr] &= ~UCDM_AT_BITW_WE;
-    return;
+HAL_BASE_t ucdm_redirect_regr_func(ucdm_addr_t addr, uint16_t target(ucdm_addr_t)){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_READ_MASK) | UCDM_AT_READ_FUNC;
+        ucdm_register[addr].rfunc = target;
+        ucdm_disable_regw(addr);
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_enable_regw(uint16_t addr){
-    ucdm_acctype[addr] |= UCDM_AT_REGW_TYPE_NORMAL;
-    return;
+uint16_t ucdm_get_register(ucdm_addr_t addr){
+    if (addr >= UCDM_MAX_REGISTERS){
+        return 0xFFFF;
+    }
+    
+    uint8_t regr_type = ucdm_acctype[addr] & UCDM_AT_READ_MASK;
+    switch (regr_type){
+        case UCDM_AT_READ_NORM:
+            return ucdm_register[addr].data;
+            break;
+        case UCDM_AT_READ_PTR:
+            if (ucdm_register[addr].ptr){
+                return *(ucdm_register[addr].ptr);
+            } else {
+                return 0xFFFF;
+            }
+            break;
+        case UCDM_AT_READ_FUNC:
+            if (ucdm_register[addr].rfunc){
+                return (ucdm_register[addr].rfunc)(addr);
+            } else {
+                return 0xFFFF;
+            }
+            break;
+        case UCDM_AT_READ_NONE:
+        default:
+            return 0xFFFF;
+            break;
+    }
 }
 
-void ucdm_disable_regw(uint16_t addr){
-    ucdm_acctype[addr] &= ~UCDM_AT_REGW_TYPE_NORMAL;
-    return;
+HAL_BASE_t ucdm_disable_regw(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] &= ~UCDM_AT_REGW_TYPE_MASK;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_redirect_regw_ptr(uint16_t addr, uint16_t * target){
-    ucdm_acctype[addr] |= UCDM_AT_REGW_TYPE_PTR;
-    ucdm_register[addr].ptr = target;
-    return;
+HAL_BASE_t ucdm_enable_regw(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_REGW_TYPE_MASK) | UCDM_AT_REGW_TYPE_NORMAL;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_redirect_regw_func(uint16_t addr, void target(uint16_t, uint16_t)){
-    ucdm_acctype[addr] |= UCDM_AT_REGW_TYPE_FUNC;
-    ucdm_register[addr].wfunc = target;
-    return;
+HAL_BASE_t ucdm_redirect_regw_ptr(ucdm_addr_t addr, uint16_t * target){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_REGW_TYPE_MASK) | UCDM_AT_REGW_TYPE_PTR;
+        ucdm_register[addr].ptr = target;
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-static void _prepare_regw_handler(avlt_node_t * node, uint16_t addr, 
-                                  ucdm_rw_handler_t handler);
-
-static void _prepare_regw_handler(avlt_node_t * node, uint16_t addr, 
-                                  ucdm_rw_handler_t handler){
-    node->content = (void *)handler;
-    node->key = addr;
-    return;
+HAL_BASE_t ucdm_redirect_regw_func(ucdm_addr_t addr, void target(ucdm_addr_t, uint16_t)){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] = (ucdm_acctype[addr] & ~UCDM_AT_REGW_TYPE_MASK) | UCDM_AT_REGW_TYPE_FUNC;
+        ucdm_register[addr].wfunc = target;
+        ucdm_disable_regr(addr);
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
-void ucdm_install_regw_handler(uint16_t addr, 
-                               avlt_node_t * rwh_node, 
-                               ucdm_rw_handler_t handler){
-    ucdm_acctype[addr] |= UCDM_AT_REGW_HF;
-    _prepare_regw_handler(rwh_node, addr, handler);
-    avlt_insert_node(&ucdm_rwht, rwh_node);
-    return;
-}
 
-static void _prepare_bitw_handler(avlt_node_t * node, uint16_t addr, 
-                                  ucdm_bw_handler_t handler);
-
-static void _prepare_bitw_handler(avlt_node_t * node, uint16_t addr, 
-                                  ucdm_bw_handler_t handler){
-    node->content = (void *)handler;
-    node->key = addr;
-    return;
-}
-
-void ucdm_install_bitw_handler(uint16_t addr, 
-                               avlt_node_t * bwh_node, 
-                               ucdm_bw_handler_t handler){
-    ucdm_acctype[addr] |= UCDM_AT_BITW_HF;
-    _prepare_bitw_handler(bwh_node, addr, handler);
-    avlt_insert_node(&ucdm_bwht, bwh_node);
-    return;
-}
-
-// TODO Consider refactoring initial address check for all functions 
-// into an inline wrapper for the compiler to strip away later.
-uint8_t ucdm_set_register(uint16_t addr, uint16_t value){
-    if (addr > DMAP_MAXREGS){
+HAL_BASE_t ucdm_set_register(ucdm_addr_t addr, uint16_t value){
+    if (addr >= UCDM_MAX_REGISTERS){
         return 1;
     }
     
@@ -159,10 +191,18 @@ uint8_t ucdm_set_register(uint16_t addr, uint16_t value){
             ucdm_register[addr].data = value;
             break;
         case UCDM_AT_REGW_TYPE_PTR:
-            *(ucdm_register[addr].ptr) = value;
+            if (ucdm_register[addr].ptr){
+                *(ucdm_register[addr].ptr) = value;
+            } else {
+                return 3;
+            }
             break;
         case UCDM_AT_REGW_TYPE_FUNC:
-            (ucdm_register[addr].wfunc)(addr, value);
+            if (ucdm_register[addr].wfunc){
+                (ucdm_register[addr].wfunc)(addr, value);
+            } else {
+                return 3;
+            }
             break;
         case UCDM_AT_REGW_TYPE_RO:
         default:
@@ -170,130 +210,198 @@ uint8_t ucdm_set_register(uint16_t addr, uint16_t value){
             break;
     }
    
+    #if UCDM_ENABLE_HANDLERS
     if (ucdm_acctype[addr] & UCDM_AT_REGW_HF){
         avlt_node_t * hfnode;
         hfnode = avlt_find_node(&ucdm_rwht, addr);
-        ((ucdm_rw_handler_t)(hfnode->content))(addr);
+        if (hfnode && hfnode->content){
+            ((ucdm_rw_handler_t)(hfnode->content))(addr);
+        }
     }
+    #endif
     return 0;
 }
 
-uint16_t ucdm_get_register(uint16_t addr){
-    if (addr > DMAP_MAXREGS){
-        return 0xFFFF;
-    }
-    
-    uint8_t regr_type = ucdm_acctype[addr] & UCDM_AT_REGR_MASK;
-    switch (regr_type){
-        case UCDM_AT_REGR_NORM:
-            return ucdm_register[addr].data;
-            break;
-        case UCDM_AT_REGR_PTR:
-            return *(ucdm_register[addr].ptr);
-            break;
-        case UCDM_AT_REGR_FUNC:
-            return (ucdm_register[addr].rfunc)(addr);
-            break;
-        case UCDM_AT_REGR_RESV:
-        default:
-            return 0xFFFF;
-            break;
+HAL_BASE_t ucdm_enable_bitw(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] |= UCDM_AT_BITW_WE;
+        return 0;
+    } else {
+        return 1;
     }
 }
 
-static void _ucdm_wfunc_set(uint16_t * target, uint16_t mask);
-static void _ucdm_wfunc_clear(uint16_t * target, uint16_t mask);
-static uint8_t _ucdm_generic_wop_bit(uint16_t addrb, void wfunc(uint16_t *, uint16_t));
-static void _ucdm_exec_bit_handler(uint16_t addr, uint16_t mask);
+HAL_BASE_t ucdm_disable_bitw(ucdm_addr_t addr){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] &= ~UCDM_AT_BITW_WE;
+        return 0;
+    } else {
+        return 1;
+    }
+}
 
-static void _ucdm_exec_bit_handler(uint16_t addr, uint16_t mask){
+static inline void _ucdm_wfunc_bitset(uint16_t * target, uint16_t mask);
+static inline void _ucdm_wfunc_bitclear(uint16_t * target, uint16_t mask);
+static uint8_t _ucdm_generic_wop_bit(ucdm_addrb_t addrb, void wfunc(uint16_t *, uint16_t));
+
+#if UCDM_ENABLE_HANDLERS
+
+static void _ucdm_exec_bit_handler(ucdm_addr_t addr, uint16_t mask);
+
+static void _ucdm_exec_bit_handler(ucdm_addr_t addr, uint16_t mask){
     avlt_node_t * hfnode;
     if (ucdm_acctype[addr] & UCDM_AT_BITW_HF){
         hfnode = avlt_find_node(&ucdm_bwht, addr);
-        ((ucdm_bw_handler_t)(hfnode->content))(addr, mask);
+        if (hfnode && hfnode->content){
+            ((ucdm_bw_handler_t)(hfnode->content))(addr, mask);
+        }
     }
     else if (ucdm_acctype[addr] & UCDM_AT_REGW_HF){
         hfnode = avlt_find_node(&ucdm_rwht, addr);
-        ((ucdm_rw_handler_t)(hfnode->content))(addr);
+        if (hfnode && hfnode->content){
+            ((ucdm_rw_handler_t)(hfnode->content))(addr);
+        }
     }
     return;
 }
 
-uint8_t ucdm_set_bit(uint16_t addrb){
-    return _ucdm_generic_wop_bit(addrb, _ucdm_wfunc_set);
-}
+#endif 
 
-uint8_t ucdm_clear_bit(uint16_t addrb){
-    return _ucdm_generic_wop_bit(addrb, _ucdm_wfunc_clear);
-}
-
-static void _ucdm_wfunc_set(uint16_t * target, uint16_t mask){
+static inline void _ucdm_wfunc_bitset(uint16_t * target, uint16_t mask){
     *target |= mask;
     return;
 }
 
-static void _ucdm_wfunc_clear(uint16_t * target, uint16_t mask){
+static inline void _ucdm_wfunc_bitclear(uint16_t * target, uint16_t mask){
     *target &= ~mask;
     return;
 }
 
-static uint8_t _ucdm_generic_wop_bit(uint16_t addrb, void wfunc(uint16_t *, uint16_t)){
-    if (addrb > DMAP_MAXBITS){
+static uint8_t _ucdm_generic_wop_bit(ucdm_addrb_t addrb, void wfunc(uint16_t *, uint16_t)){
+    if (addrb >= UCDM_MAX_BITS){
         return 1;
     }
-    uint16_t addr;
+    ucdm_addr_t addr;
     uint16_t mask;
-    uint8_t reg_at;
+    ucdm_acctype_t reg_at;
     ucdm_get_bit_addr(addrb, &addr, &mask);
-    
-    if (!(ucdm_acctype[addr] & UCDM_AT_BITW_WE)){
+
+    reg_at = ucdm_acctype[addr];
+
+    if (!(reg_at & UCDM_AT_BITW_WE)){
         return 2;
     }
     
-    reg_at = ucdm_acctype[addr] & UCDM_AT_REGW_TYPE_MASK;
-    switch (reg_at){
+    switch (reg_at & UCDM_AT_REGW_TYPE_MASK){
         case UCDM_AT_REGW_TYPE_NORMAL:
             wfunc(&(ucdm_register[addr].data), mask);
             break;
         case UCDM_AT_REGW_TYPE_PTR:
-            wfunc(ucdm_register[addr].ptr, mask);
+            if (ucdm_register[addr].ptr){
+                wfunc(ucdm_register[addr].ptr, mask);
+            } else {
+                return 4;
+            }
             break;
-        case UCDM_AT_REGR_FUNC:
-        case UCDM_AT_REGR_RESV:
+        case UCDM_AT_READ_FUNC:
+        case UCDM_AT_READ_NONE:
         default:
             return 3;
     }
+    #if UCDM_ENABLE_HANDLERS
     _ucdm_exec_bit_handler(addr, mask);
+    #endif
     return 0;
 }
 
-uint8_t ucdm_get_bit(uint16_t addrb){
-    if (addrb > DMAP_MAXBITS){
+HAL_BASE_t ucdm_set_bit(ucdm_addrb_t addrb){
+    return _ucdm_generic_wop_bit(addrb, _ucdm_wfunc_bitset);
+}
+
+HAL_BASE_t ucdm_clear_bit(ucdm_addrb_t addrb){
+    return _ucdm_generic_wop_bit(addrb, _ucdm_wfunc_bitclear);
+}
+
+uint8_t ucdm_get_bit(ucdm_addrb_t addrb){
+    if (addrb >= UCDM_MAX_BITS){
         return 1;
     }
-    uint16_t addr;
+    ucdm_addr_t addr;
     uint16_t mask;
-    uint8_t reg_at;
+    ucdm_acctype_t reg_at;
     ucdm_get_bit_addr(addrb, &addr, &mask);
-    reg_at = ucdm_acctype[addr] & UCDM_AT_REGR_MASK;
+    reg_at = ucdm_acctype[addr] & UCDM_AT_READ_MASK;
     switch (reg_at){
-        case UCDM_AT_REGR_NORM:
+        case UCDM_AT_READ_NORM:
             if (ucdm_register[addr].data & mask){
                 return 0xFF;
             }
             else{
                 return 0x00;
             }
-        case UCDM_AT_REGR_PTR:
+        case UCDM_AT_READ_PTR:
+            if (!ucdm_register[addr].ptr) {
+                return 3;
+            }
             if (*(ucdm_register[addr].ptr) & mask){
                 return 0xFF;
             }
             else{
                 return 0x00;
             }
-        case UCDM_AT_REGR_FUNC:
-        case UCDM_AT_REGR_RESV:
+        case UCDM_AT_READ_FUNC:
+        case UCDM_AT_READ_NONE:
         default:
             return 2;
     }
 }
+
+#if UCDM_ENABLE_HANDLERS
+
+static void _prepare_regw_handler(avlt_node_t * node, ucdm_addr_t addr, 
+                                  ucdm_rw_handler_t handler);
+
+static void _prepare_regw_handler(avlt_node_t * node, ucdm_addr_t addr, 
+                                  ucdm_rw_handler_t handler){
+    node->content = (void *)handler;
+    node->key = addr;
+    return;
+}
+
+HAL_BASE_t ucdm_install_regw_handler(ucdm_addr_t addr, 
+                               avlt_node_t * rwh_node, 
+                               ucdm_rw_handler_t handler){
+    if (addr < UCDM_MAX_REGISTERS) {    
+        ucdm_acctype[addr] |= UCDM_AT_REGW_HF;
+        _prepare_regw_handler(rwh_node, addr, handler);
+        avlt_insert_node(&ucdm_rwht, rwh_node);
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+static void _prepare_bitw_handler(avlt_node_t * node, ucdm_addr_t addr, 
+                                  ucdm_bw_handler_t handler);
+
+static void _prepare_bitw_handler(avlt_node_t * node, ucdm_addr_t addr, 
+                                  ucdm_bw_handler_t handler){
+    node->content = (void *)handler;
+    node->key = addr;
+    return;
+}
+
+HAL_BASE_t ucdm_install_bitw_handler(ucdm_addr_t addr, 
+                               avlt_node_t * bwh_node, 
+                               ucdm_bw_handler_t handler){
+    if (addr < UCDM_MAX_REGISTERS) {
+        ucdm_acctype[addr] |= UCDM_AT_BITW_HF;
+        _prepare_bitw_handler(bwh_node, addr, handler);
+        avlt_insert_node(&ucdm_bwht, bwh_node);
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+#endif
