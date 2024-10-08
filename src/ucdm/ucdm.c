@@ -31,6 +31,8 @@
 
 #include <string.h>
 #include "ucdm.h"
+#include "descriptor.h"
+
 
 uint16_t ucdm_diagnostic_register;
 uint8_t  ucdm_exception_status;
@@ -55,6 +57,20 @@ static inline void _ucdm_acctype_init(void){
     memset(&ucdm_acctype, 0, sizeof(uint8_t) * UCDM_MAX_REGISTERS);
 }
 
+#if UCDM_LIBVERSION_DESCRIPTOR
+
+static descriptor_custom_t ucdm_descriptor = {NULL, DESCRIPTOR_TAG_LIBVERSION,
+    sizeof(UCDM_VERSION), DESCRIPTOR_ACCTYPE_PTR, {UCDM_VERSION}};
+
+    
+static void _ucdm_install_descriptor(void)
+{
+    descriptor_install(&ucdm_descriptor);
+}    
+
+#endif
+
+
 static inline void _ucdm_handlers_init(void){
     #if UCDM_ENABLE_HANDLERS
     ucdm_bwht.root = NULL;
@@ -63,10 +79,12 @@ static inline void _ucdm_handlers_init(void){
 }
 
 void ucdm_init(void){
-    // this probably isn't actually needed. 
     _ucdm_registers_init();
     _ucdm_acctype_init();
     _ucdm_handlers_init();
+    #if UCDM_LIBVERSION_DESCRIPTOR
+    _ucdm_install_descriptor();
+    #endif
     return;
 }
 

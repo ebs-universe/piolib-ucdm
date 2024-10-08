@@ -1,6 +1,6 @@
 /* 
    Copyright (c)
-     (c) 2018 Chintalagiri Shashank, Quazar Technologies Pvt. Ltd.
+     (c) 2018 Chintalagiri Shashank
    
    This file is part of
    Embedded bootstraps : ucdm library
@@ -22,7 +22,14 @@
 /**
  * @file descriptor.h
  * @brief Descriptor type definitions.
- *
+ * 
+ * Descriptors are intended to support things like USB descriptor strings,
+ * modbus device descriptors, library and application version information, 
+ * etc.
+ * 
+ * This is presently mostly placeholder, and needs to be reintegrated with 
+ * modbus and usb implementations. 
+ * 
  */
 
 #ifndef UCDM_DESCRIPTOR_H
@@ -30,6 +37,7 @@
 
 #include "ucdm.h"
 
+#if UCDM_ENABLE_DESCRIPTORS
 
 typedef struct DESCRIPTOR_VENDOR_t{
     const char * const name;
@@ -84,4 +92,5 @@ descriptor_custom_t * descriptor_find(uint8_t tag);
 
 uint8_t descriptor_read(descriptor_custom_t * dptr, void * target);
 
+#endif
 #endif

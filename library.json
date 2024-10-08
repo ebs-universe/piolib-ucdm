@@ -1,6 +1,6 @@
 {
     "name": "ebs-ucdm",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Simple Unified Configuration and Data Manager (UCDM) library for embedded systems",
     "keywords": "ebs",
     "repository": {

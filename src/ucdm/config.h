@@ -5,10 +5,10 @@
 #ifndef UCDM_CONFIG_H
 #define UCDM_CONFIG_H
 
-#define UCDM_VERSION       "0.2.0"
+#define UCDM_VERSION       "ucdm 0.3.0"
 
 #ifndef APP_ENABLE_UCDM
-    #define APP_ENABLE_UCDM     1
+    #define APP_ENABLE_UCDM         1
 #endif
 
 #if (!APP_ENABLE_UCDM)
@@ -49,4 +49,12 @@
     #define UCDM_ENABLE_DESCRIPTORS     1
 #endif
 
+#ifdef APP_ENABLE_LIBVERSION_DESCRIPTORS
+    #define UCDM_LIBVERSION_DESCRIPTOR  APP_ENABLE_LIBVERSION_DESCRIPTORS
+#else
+    #define UCDM_LIBVERSION_DESCRIPTOR  0
 #endif
+
+
+#endif
+

@@ -29,6 +29,7 @@
 #include <ds/sllist.h>
 #include "descriptor.h"
 
+#if UCDM_ENABLE_DESCRIPTORS
 
 descriptor_custom_t * descriptor_custom_root = NULL;
 
@@ -56,3 +57,5 @@ uint8_t descriptor_read(descriptor_custom_t * dptr, void * target){
             return(0);
     }
 }
+
+#endif
