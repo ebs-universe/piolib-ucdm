@@ -1,14 +1,15 @@
 #include <unity.h>
 #include <ucdm/ucdm.h>
-#include "../scaffold/common.c"
+#include <scaffold.h>
 #include <string.h>
 
-#define ADDR_READ_NORM          2
-#define ADDR_READ_STABLE        6
-#define ADDR_READ_EPHEMERAL     10
-#define ADDR_WRITE_NORM         14
-#define ADDR_WRITE_STABLE       18
-#define ADDR_WRITE_EPHEMERAL    22
+#define TEST_START_ADDR         16
+#define ADDR_READ_NORM          TEST_START_ADDR + 2
+#define ADDR_READ_STABLE        TEST_START_ADDR + 6
+#define ADDR_READ_EPHEMERAL     TEST_START_ADDR + 10
+#define ADDR_WRITE_NORM         TEST_START_ADDR + 14
+#define ADDR_WRITE_STABLE       TEST_START_ADDR + 18
+#define ADDR_WRITE_EPHEMERAL    TEST_START_ADDR + 22
 
 #define EXAMPLE_VALUE   0x5678901234567890
 #define EXAMPLE_INPUT   0x9876543210987654
@@ -249,7 +250,7 @@ void test_write_multiple_ephemeral(void){
 
 
 int main(void) {
-    libinit();
+    init();
     UNITY_BEGIN();
     RUN_TEST(test_read_multiple_direct);
     RUN_TEST(test_read_multiple_normal);

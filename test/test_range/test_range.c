@@ -2,8 +2,7 @@
 
 #include <unity.h>
 #include <ucdm/ucdm.h>
-#include "../scaffold/common.c"
-
+#include <scaffold.h>
 
 void test_regr_conf_maxrange(void) {
     HAL_BASE_t result;
@@ -69,7 +68,7 @@ void test_wh_maxrange(void){
 }
 
 int main( int argc, char **argv) {
-    libinit();
+    init();
     UNITY_BEGIN();
     RUN_TEST(test_regr_conf_maxrange);
     RUN_TEST(test_bitw_conf_maxrange);

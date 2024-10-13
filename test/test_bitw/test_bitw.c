@@ -1,7 +1,7 @@
 
 #include <unity.h>
 #include <ucdm/ucdm.h>
-#include "../scaffold/common.c"
+#include <scaffold.h>
 
 #define SUCCESS 0
 #define INITVAL 0x0100
@@ -14,7 +14,7 @@ void mock_function(ucdm_addr_t addr, uint16_t value) {
 }
 
 void test_ucdm_bitw_ro_disable(void) {
-    ucdm_addr_t addr = 0x01;
+    ucdm_addr_t addr = 0x10;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0xA;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x9;
     HAL_BASE_t result;
@@ -37,7 +37,7 @@ void test_ucdm_bitw_ro_disable(void) {
 }
 
 void test_ucdm_bitw_ro_enable(void) {
-    ucdm_addr_t addr = 0x02;
+    ucdm_addr_t addr = 0x12;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0xA;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x9;
     HAL_BASE_t result;
@@ -60,7 +60,7 @@ void test_ucdm_bitw_ro_enable(void) {
 }
 
 void test_ucdm_bitw_normal_disable(void) {
-    ucdm_addr_t addr = 0x03;
+    ucdm_addr_t addr = 0x13;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0xA;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x9;
 
@@ -83,7 +83,7 @@ void test_ucdm_bitw_normal_disable(void) {
 }
 
 void test_ucdm_bitw_normal_enable(void) {
-    ucdm_addr_t addr = 0x04;
+    ucdm_addr_t addr = 0x14;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;
     
@@ -106,7 +106,7 @@ void test_ucdm_bitw_normal_enable(void) {
 }
 
 void test_ucdm_bitw_ptr_disable(void) {
-    ucdm_addr_t addr = 0x05;
+    ucdm_addr_t addr = 0x15;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;    
     
@@ -129,7 +129,7 @@ void test_ucdm_bitw_ptr_disable(void) {
 }
 
 void test_ucdm_bitw_ptr_enable(void) {
-    ucdm_addr_t addr = 0x06;
+    ucdm_addr_t addr = 0x16;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;    
     HAL_BASE_t result;
@@ -151,7 +151,7 @@ void test_ucdm_bitw_ptr_enable(void) {
 }
 
 void test_ucdm_bitw_ptr_null_enable(void) {
-    ucdm_addr_t addr = 0x07;
+    ucdm_addr_t addr = 0x17;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;    
     
@@ -171,7 +171,7 @@ void test_ucdm_bitw_ptr_null_enable(void) {
 }
 
 void test_ucdm_bitw_func_disable(void) {
-    ucdm_addr_t addr = 0x08;
+    ucdm_addr_t addr = 0x18;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;    
     HAL_BASE_t result;
@@ -194,7 +194,7 @@ void test_ucdm_bitw_func_disable(void) {
 
 
 void test_ucdm_bitw_func_enable(void) {
-    ucdm_addr_t addr = 0x09;
+    ucdm_addr_t addr = 0x19;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;    
     HAL_BASE_t result;
@@ -216,7 +216,7 @@ void test_ucdm_bitw_func_enable(void) {
 }
 
 void test_ucdm_bitw_func_null_enable(void) {
-    ucdm_addr_t addr = 0x0A;
+    ucdm_addr_t addr = 0x1A;
     ucdm_addrb_t addrb_ts = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_tc = addr << 0x04 | 0x8;   
     HAL_BASE_t result;
@@ -235,7 +235,7 @@ void test_ucdm_bitw_func_null_enable(void) {
 }
 
 int main(void) {
-    libinit();
+    init();
     UNITY_BEGIN();
     RUN_TEST(test_ucdm_bitw_ro_disable);
     RUN_TEST(test_ucdm_bitw_ro_enable);

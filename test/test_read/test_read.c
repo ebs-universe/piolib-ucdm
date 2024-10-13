@@ -1,6 +1,6 @@
 #include <unity.h>
 #include <ucdm/ucdm.h>
-#include "../scaffold/common.c"
+#include <scaffold.h>
 
 #define SUCCESS 0
 uint16_t dummy_target=0x0211;
@@ -10,7 +10,7 @@ uint16_t mock_function(ucdm_addr_t addr) {
 }
 
 void test_ucdm_disable_regr(void) {
-    ucdm_addr_t addr = 0x01;
+    ucdm_addr_t addr = 0x11;
     uint16_t read_result;
     ucdm_register[addr].data = 0x0101;
 
@@ -22,7 +22,7 @@ void test_ucdm_disable_regr(void) {
 }
 
 void test_ucdm_enable_regr_normal(void) {
-    ucdm_addr_t addr = 0x02;
+    ucdm_addr_t addr = 0x12;
     uint16_t read_result;
     ucdm_register[addr].data = 0x0101;
 
@@ -33,7 +33,7 @@ void test_ucdm_enable_regr_normal(void) {
 }
 
 void test_ucdm_redirect_regr_ptr(void) {
-    ucdm_addr_t addr = 0x03;
+    ucdm_addr_t addr = 0x13;
     uint16_t read_result;
 
     HAL_BASE_t result = ucdm_redirect_regr_ptr(addr, &dummy_target);
@@ -44,7 +44,7 @@ void test_ucdm_redirect_regr_ptr(void) {
 }
 
 void test_ucdm_redirect_regr_ptr_null(void) {
-    ucdm_addr_t addr = 0x04;
+    ucdm_addr_t addr = 0x14;
     uint16_t read_result;
 
     HAL_BASE_t result = ucdm_redirect_regr_ptr(addr, NULL);
@@ -55,7 +55,7 @@ void test_ucdm_redirect_regr_ptr_null(void) {
 }
 
 void test_ucdm_redirect_regr_func(void) {
-    ucdm_addr_t addr = 0x05;
+    ucdm_addr_t addr = 0x15;
     uint16_t read_result;
 
     HAL_BASE_t result = ucdm_redirect_regr_func(addr, mock_function);
@@ -66,7 +66,7 @@ void test_ucdm_redirect_regr_func(void) {
 }
 
 void test_ucdm_redirect_regr_func_null(void) {
-    ucdm_addr_t addr = 0x06;
+    ucdm_addr_t addr = 0x16;
     uint16_t read_result;
 
     HAL_BASE_t result = ucdm_redirect_regr_func(addr, NULL);
@@ -77,7 +77,7 @@ void test_ucdm_redirect_regr_func_null(void) {
 }
 
 void test_ucdm_get_bit_normal(void) {
-    ucdm_addr_t addr = 0x07;
+    ucdm_addr_t addr = 0x17;
     ucdm_addrb_t addrb_set = addr << 0x04 | 0xC;
     ucdm_addrb_t addrb_clr = addr << 0x04 | 0xD;
     HAL_BASE_t result;
@@ -95,7 +95,7 @@ void test_ucdm_get_bit_normal(void) {
 }
 
 void test_ucdm_get_bit_pointer(void) {
-    ucdm_addr_t addr = 0x08;
+    ucdm_addr_t addr = 0x18;
     ucdm_addrb_t addrb_set = addr << 0x04 | 0x9;
     ucdm_addrb_t addrb_clr = addr << 0x04 | 0xD;
 
@@ -111,7 +111,7 @@ void test_ucdm_get_bit_pointer(void) {
 }
 
 void test_ucdm_get_bit_noread(void) {
-    ucdm_addr_t addr = 0x09;
+    ucdm_addr_t addr = 0x19;
     ucdm_addrb_t addrb_set = addr << 0x04 | 0xC;
     ucdm_addrb_t addrb_clr = addr << 0x04 | 0xD;
     HAL_BASE_t result;
@@ -128,7 +128,7 @@ void test_ucdm_get_bit_noread(void) {
 }
 
 void test_ucdm_get_bit_nullptr(void) {
-    ucdm_addr_t addr = 0x0A;
+    ucdm_addr_t addr = 0x1A;
     ucdm_addrb_t addrb_set = addr << 0x04 | 0xC;
     ucdm_addrb_t addrb_clr = addr << 0x04 | 0xD;
     HAL_BASE_t result;
@@ -144,7 +144,7 @@ void test_ucdm_get_bit_nullptr(void) {
 }
 
 int main(void) {
-    libinit();
+    init();
     UNITY_BEGIN();
     RUN_TEST(test_ucdm_disable_regr);
     RUN_TEST(test_ucdm_enable_regr_normal);

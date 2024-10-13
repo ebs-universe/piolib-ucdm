@@ -2,8 +2,7 @@
 
 #include <unity.h>
 #include <ucdm/descriptor.h>
-
-#include "../scaffold/common.c"
+#include <scaffold.h>
 
 void test_descriptor_version(void) {
     // TODO This needs to actually find the descriptor.
@@ -18,7 +17,7 @@ void test_descriptor_version(void) {
 }
 
 int main( int argc, char **argv) {
-    libinit();
+    init();
     UNITY_BEGIN();
     RUN_TEST(test_descriptor_version);
     UNITY_END();

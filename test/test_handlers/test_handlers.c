@@ -1,13 +1,13 @@
 #include <unity.h>
 #include <string.h>
 #include <ucdm/ucdm.h>
-#include "../scaffold/common.c"
+#include <scaffold.h>
 
-#define RWH_ON_ADDR     0x02
-#define BWH_ON_ADDR     0x03
-#define BOTH_ON_ADDR    0x06
-#define RWHN_ON_ADDR    0x08
-#define BWHN_ON_ADDR    0x0C
+#define RWH_ON_ADDR     0x12
+#define BWH_ON_ADDR     0x13
+#define BOTH_ON_ADDR    0x16
+#define RWHN_ON_ADDR    0x18
+#define BWHN_ON_ADDR    0x1C
 
 typedef struct SIGNALS_t{
     uint8_t rwh1;
@@ -209,7 +209,7 @@ void test_bwhn_bw(void){
 
 
 int main(void) {
-    libinit();
+    init();
     UNITY_BEGIN();
     setup();
     RUN_TEST(test_rwh_rw);
