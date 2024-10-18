@@ -80,6 +80,7 @@ void test_rwh_rw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_register(RWH_ON_ADDR, 0x1010);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = RWH_ON_ADDR,
         .rwh2 = 0,
@@ -97,6 +98,7 @@ void test_rwh_bw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_bit(RWH_ON_ADDR << 4 | 2);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = RWH_ON_ADDR,
         .rwh2 = 0,
@@ -114,6 +116,7 @@ void test_bwh_rw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_register(BWH_ON_ADDR, 0x0012);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = 0,
@@ -130,6 +133,7 @@ void test_bwh_bw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_bit(BWH_ON_ADDR << 4 | 3);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = 0,
@@ -146,6 +150,7 @@ void test_both_rw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_register(BOTH_ON_ADDR, 0x1212);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = BOTH_ON_ADDR,
@@ -162,6 +167,7 @@ void test_both_bw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_bit(BOTH_ON_ADDR << 4 | 4);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = 0,
@@ -178,6 +184,7 @@ void test_rwhn_rw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_register(RWHN_ON_ADDR, 0x1223);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = 0,
@@ -195,6 +202,7 @@ void test_bwhn_bw(void){
     HAL_BASE_t result;
     reset_signals();
     result = ucdm_set_bit(RWHN_ON_ADDR << 4 | 2);
+    TEST_ASSERT_EQUAL(0, result);
     signals_t expected = {
         .rwh1 = 0,
         .rwh2 = 0,

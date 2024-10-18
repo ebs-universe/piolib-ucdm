@@ -17,7 +17,7 @@ void test_ucdm_disable_regr(void) {
     HAL_BASE_t result = ucdm_disable_regr(addr);
     TEST_ASSERT_EQUAL(SUCCESS, result); 
     
-    read_result = ucdm_get_register(0x01);
+    read_result = ucdm_get_register(addr);
     TEST_ASSERT_EQUAL(0xFFFF, read_result);
 }
 
