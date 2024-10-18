@@ -30,5 +30,4 @@ void libinit(void){
 void init(void){
     sysinit();
     libinit();
-    
 }
