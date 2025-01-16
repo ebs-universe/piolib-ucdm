@@ -31,6 +31,7 @@
 
 #include <string.h>
 #include "ucdm.h"
+#include "span.h"
 #include "descriptor.h"
 
 
@@ -84,6 +85,9 @@ void ucdm_init(void){
     _ucdm_handlers_init();
     #if UCDM_LIBVERSION_DESCRIPTOR
     _ucdm_install_descriptor();
+    #endif
+    #if UCDM_SPAN_ENABLE
+    _ucdm_span_init();
     #endif
     return;
 }

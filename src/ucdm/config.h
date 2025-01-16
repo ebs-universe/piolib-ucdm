@@ -57,6 +57,27 @@
 #endif
 #endif
 
+#ifdef APP_UCDM_SPAN_MAX_COUNT
+    #define UCDM_SPAN_MAX_COUNT         APP_UCDM_SPAN_MAX_COUNT
+#else
+    #define UCDM_SPAN_MAX_COUNT         0
+#endif
+
+#ifdef APP_UCDM_SPAN_MAX_LENGTH
+    #define UCDM_SPAN_MAX_LENGTH        APP_UCDM_SPAN_MAX_LENGTH
+#else
+    // 4 registers = 8 bytes = 64 bits
+    #define UCDM_SPAN_MAX_LENGTH        4
+#endif
+
+#ifndef UCDM_SPAN_ENABLE
+    #if UCDM_SPAN_MAX_COUNT
+        #define UCDM_SPAN_ENABLE        1
+    #else
+        #define UCDM_SPAN_ENABLE        0
+    #endif
+#endif        
+
 
 #endif
 

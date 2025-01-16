@@ -1,6 +1,6 @@
 {
     "name": "ebs-ucdm",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Simple Unified Configuration and Data Manager (UCDM) library for embedded systems",
     "keywords": "ebs",
     "repository": {
@@ -21,7 +21,7 @@
         { 
             "owner": "chintal",
             "name": "ebs-ds",
-            "version": "^0.2.0"
+            "version": "^0.3.1"
         },
         { 
             "owner": "chintal",
