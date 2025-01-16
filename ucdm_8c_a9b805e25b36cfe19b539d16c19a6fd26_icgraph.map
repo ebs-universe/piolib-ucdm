@@ -1,0 +1,7 @@
+<map id="_ucdm_generic_wop_bit" name="_ucdm_generic_wop_bit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="175,31,353,56"/>
+<area shape="rect" id="Node000002" href="$ucdm_8c.html#acfc84fe0eb923e844eda3dc689bb6921" title="Clear a UCDM bit from protocol." alt="" coords="5,5,127,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,33,127,28,127,23,161,27"/>
+<area shape="rect" id="Node000003" href="$ucdm_8c.html#a6c67499b748795e01bdffb17d7ceb995" title="Set a UCDM bit from protocol." alt="" coords="11,55,121,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,58,121,63,121,58,161,53"/>
+</map>

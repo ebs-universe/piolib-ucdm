@@ -1,0 +1,11 @@
+<map id="ucdm_clear_bit" name="ucdm_clear_bit">
+<area shape="rect" id="Node000001" title="Clear a UCDM bit from protocol." alt="" coords="5,55,127,80"/>
+<area shape="rect" id="Node000002" href="$ucdm_8c.html#a9b805e25b36cfe19b539d16c19a6fd26" title=" " alt="" coords="175,29,353,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,57,161,52,162,58,127,62"/>
+<area shape="rect" id="Node000005" href="$ucdm_8c.html#aaab0adb2fec07263bfba7e104326460b" title=" " alt="" coords="181,79,347,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="127,72,167,77,167,82,127,77"/>
+<area shape="rect" id="Node000003" href="$ucdm_8c.html#acc05d20c3a88a516afb2f75a15e34f2f" title=" " alt="" coords="401,5,584,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="353,30,388,26,388,32,354,35"/>
+<area shape="rect" id="Node000004" href="$ucdm_8h.html#aeec28f3331971c9ebaf5fd7744aafe13" title="Get the address of a UCDM bit from the identifier." alt="" coords="419,55,566,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="354,49,406,55,405,60,353,55"/>
+</map>

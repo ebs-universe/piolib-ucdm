@@ -1,0 +1,17 @@
+<map id="ucdm/span.c" name="ucdm/span.c">
+<area shape="rect" id="Node000001" title="Support for types spanning multiple registers." alt="" coords="212,5,316,31"/>
+<area shape="rect" id="Node000002" href="$span_8h.html" title="Support for types spanning multiple registers." alt="" coords="231,79,297,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,31,267,65,261,65,261,31"/>
+<area shape="rect" id="Node000003" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="229,152,299,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="267,104,267,138,261,138,261,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,136,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="234,180,116,223,114,218,232,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="160,225,259,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="257,179,229,216,224,213,253,176"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="283,225,354,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="275,176,304,213,299,216,271,179"/>
+<area shape="rect" id="Node000007" href="$config_8h.html" title=" " alt="" coords="378,225,451,251"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="289,175,379,217,376,222,287,180"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="361,299,468,324"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="417,251,417,285,412,285,412,251"/>
+</map>

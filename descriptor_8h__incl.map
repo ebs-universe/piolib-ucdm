@@ -1,9 +1,15 @@
 <map id="ucdm/descriptor.h" name="ucdm/descriptor.h">
-<area shape="rect" id="node1" title="Descriptor type definitions." alt="" coords="195,5,333,32"/>
-<area shape="rect" id="node2" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="229,80,299,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,136,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="160,155,259,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="283,155,354,181"/>
-<area shape="rect" id="node6" href="$config_8h_source.html" title=" " alt="" coords="378,155,451,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="361,229,468,256"/>
+<area shape="rect" id="Node000001" title="Descriptor type definitions." alt="" coords="195,5,333,31"/>
+<area shape="rect" id="Node000002" href="$ucdm_8h.html" title="Interface and usage of the Unified Configuration and Data Manager." alt="" coords="229,79,299,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,31,267,65,261,65,261,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,136,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="234,107,116,150,114,145,232,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="160,152,259,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="257,106,229,143,224,140,253,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,152,354,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="275,103,304,140,299,143,271,106"/>
+<area shape="rect" id="Node000006" href="$config_8h.html" title=" " alt="" coords="378,152,451,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="289,102,379,144,376,148,287,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="361,225,468,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="417,178,417,212,412,212,412,178"/>
 </map>

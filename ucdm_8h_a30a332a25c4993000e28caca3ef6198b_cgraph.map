@@ -1,4 +1,5 @@
 <map id="ucdm_redirect_regw_func" name="ucdm_redirect_regw_func">
-<area shape="rect" id="node1" title="Configure UCDM register write access on this register to redirect to a function pointer." alt="" coords="5,5,195,32"/>
-<area shape="rect" id="node2" href="$ucdm_8c.html#afadb3313130bbd61e8469164ebdc960e" title="Disable UCDM register register access on register." alt="" coords="243,5,388,32"/>
+<area shape="rect" id="Node000001" title="Configure UCDM register write access on this register to redirect to a function pointer." alt="" coords="5,5,195,31"/>
+<area shape="rect" id="Node000002" href="$ucdm_8c.html#afadb3313130bbd61e8469164ebdc960e" title="Disable UCDM register register access on register." alt="" coords="243,5,388,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
 </map>

@@ -35,6 +35,7 @@ var ucdm_8h =
     [ "ucdm_enable_regr", "ucdm_8h.html#a1eb2df29b9aba9133b2ef0d2718cf048", null ],
     [ "ucdm_enable_regw", "ucdm_8h.html#adc878481316567547dcd14a1859654a8", null ],
     [ "ucdm_get_bit", "ucdm_8h.html#a17a8cd2f4803b9468624d3551491b6f4", null ],
+    [ "ucdm_get_bit_addr", "ucdm_8h.html#aeec28f3331971c9ebaf5fd7744aafe13", null ],
     [ "ucdm_get_register", "ucdm_8h.html#a114b48e3559aa2ba95a9dcdbbd50a0b6", null ],
     [ "ucdm_init", "ucdm_8h.html#a8be24db9dca287a7aa7b38d12c2969d9", null ],
     [ "ucdm_install_bitw_handler", "ucdm_8h.html#ae73a5db58e4790a5a616f087c33e9ba8", null ],

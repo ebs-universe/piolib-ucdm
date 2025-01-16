@@ -1,0 +1,5 @@
+<map id="ucdm_get_bit" name="ucdm_get_bit">
+<area shape="rect" id="Node000001" title="Get the value of a UCDM bit from protocol." alt="" coords="5,5,116,31"/>
+<area shape="rect" id="Node000002" href="$ucdm_8h.html#aeec28f3331971c9ebaf5fd7744aafe13" title="Get the address of a UCDM bit from the identifier." alt="" coords="164,5,311,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,15,150,15,150,21,116,21"/>
+</map>

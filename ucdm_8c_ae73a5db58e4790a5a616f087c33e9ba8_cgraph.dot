@@ -1,0 +1,12 @@
+digraph "ucdm_install_bitw_handler"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ucdm_install_bitw_handler",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Install a Bit Write Handler for a UCDM register."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="_prepare_bitw_handler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ucdm_8c.html#ad4d2cce10aaeee2ddf7f81ab5c3ff5f6",tooltip=" "];
+}

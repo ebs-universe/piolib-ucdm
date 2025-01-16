@@ -1,5 +1,14 @@
 var ucdm_8c =
 [
+    [ "_prepare_bitw_handler", "ucdm_8c.html#ad4d2cce10aaeee2ddf7f81ab5c3ff5f6", null ],
+    [ "_prepare_regw_handler", "ucdm_8c.html#ab7a8e8fc2e2e475c70c034bd57ec293d", null ],
+    [ "_ucdm_acctype_init", "ucdm_8c.html#a1d89b842c062c7988aa35fc8bf7d10a3", null ],
+    [ "_ucdm_exec_bit_handler", "ucdm_8c.html#acc05d20c3a88a516afb2f75a15e34f2f", null ],
+    [ "_ucdm_generic_wop_bit", "ucdm_8c.html#a9b805e25b36cfe19b539d16c19a6fd26", null ],
+    [ "_ucdm_handlers_init", "ucdm_8c.html#aec2f05db6893b51943f589146364ffb6", null ],
+    [ "_ucdm_registers_init", "ucdm_8c.html#a2af61618c8b2a7c03fd100c1cfa0124f", null ],
+    [ "_ucdm_wfunc_bitclear", "ucdm_8c.html#aaab0adb2fec07263bfba7e104326460b", null ],
+    [ "_ucdm_wfunc_bitset", "ucdm_8c.html#a4e91303ab3e7acb5488a428134fba469", null ],
     [ "ucdm_clear_bit", "ucdm_8c.html#acfc84fe0eb923e844eda3dc689bb6921", null ],
     [ "ucdm_disable_bitw", "ucdm_8c.html#a4b4f7426a4eef74fccfda9a0ca3e5fb6", null ],
     [ "ucdm_disable_regr", "ucdm_8c.html#afadb3313130bbd61e8469164ebdc960e", null ],
